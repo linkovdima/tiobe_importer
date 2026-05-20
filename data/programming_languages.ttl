@@ -1,0 +1,2172 @@
+@prefix : <http://www.semanticweb.org/дмитрий/ontologies/2025/10/untitled-ontology-7/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:KnowledgeFact a rdfs:Class .
+
+:SourceDocument a rdfs:Class .
+
+<http://www.semanticweb.org/дмитрий/ontologies/2025/10/untitled-ontology-7> a owl:Ontology .
+
+:21stCenturyC a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :keywords "c, современный, бесплатно, английский, средний" ;
+    :title "21st Century C" ;
+    :url "https://www.oreilly.com/library/view/21st-century-c/9781491904428/"^^xsd:anyURI ;
+    :writtenBy :BenKlemens .
+
+:Advanced a owl:Class ;
+    rdfs:subClassOf :DifficultyLevel .
+
+:AndrewTroelsen a :Author,
+        owl:NamedIndividual .
+
+:AutomatetheBoringStuffwithPython a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, автоматизация, бесплатно, английский" ;
+    :title "Automate the Boring Stuff with Python" ;
+    :url "https://automatetheboringstuff.com/"^^xsd:anyURI ;
+    :writtenBy :AlSweigart .
+
+:Beginner a owl:Class ;
+    rdfs:subClassOf :DifficultyLevel .
+
+:BrianKernighan a :Author,
+        owl:NamedIndividual .
+
+:CBestPractices a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :CPlusPlus ;
+    :keywords "c++, лучшие практики, английский, средний" ;
+    :title "C++ Best Practices" ;
+    :url "https://github.com/cpp-best-practices/cppbestpractices"^^xsd:anyURI .
+
+:CCoreGuidelines a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :CPlusPlus ;
+    :keywords "c++, руководство, бесплатно, английский" ;
+    :title "C++ Core Guidelines" ;
+    :url "https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines"^^xsd:anyURI ;
+    :writtenBy :BjarneStroustrup .
+
+:CDesignPatterns a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :CSharp ;
+    :keywords "c#, паттерны, английский, средний" ;
+    :title "C# Design Patterns" ;
+    :url "https://www.dofactory.com/net/design-patterns"^^xsd:anyURI .
+
+:CDocumentation a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :CSharp ;
+    :description "Официальная документация C#" ;
+    :title "C# Documentation" ;
+    :url "https://docs.microsoft.com/dotnet/csharp/"^^xsd:anyURI .
+
+:CMemoryManagement a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :keywords "c, память, английский, средний" ;
+    :title "C Memory Management" ;
+    :url "https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/"^^xsd:anyURI .
+
+:CPerformanceTips a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :CPlusPlus ;
+    :keywords "c++, производительность, английский, продвинутый" ;
+    :title "C++ Performance Tips" ;
+    :url "https://www.agner.org/optimize/"^^xsd:anyURI .
+
+:CPrimer a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :CPlusPlus ;
+    :keywords "c++, обучение, бесплатно, английский, средний" ;
+    :title "C++ Primer" ;
+    :url "https://www.informit.com/store/c-plus-plus-primer-9780321714114"^^xsd:anyURI ;
+    :writtenBy :StanleyLippman .
+
+:CProgrammingBestPractices a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :keywords "c, лучшие практики, английский, средний" ;
+    :title "C Programming Best Practices" ;
+    :url "https://www.embedded.com/design/programming-languages-and-tools/4425010/10-C-programming-best-practices"^^xsd:anyURI .
+
+:CProgrammingGuide a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :CSharp ;
+    :keywords "c#, руководство, бесплатно, английский" ;
+    :title "C# Programming Guide" ;
+    :url "https://docs.microsoft.com/dotnet/csharp/programming-guide/"^^xsd:anyURI ;
+    :writtenBy :Microsoft .
+
+:CProgrammingNotes a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :keywords "c, обучение, бесплатно, английский" ;
+    :title "C Programming Notes" ;
+    :url "https://www.eskimo.com/~scs/cclass/notes/top.html"^^xsd:anyURI ;
+    :writtenBy :SteveSummit .
+
+:CProgrammingProgramiz a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :CPlusPlus ;
+    :keywords "c++, программирование, английский, начальный" ;
+    :title "C++ Programming - Programiz" ;
+    :url "https://www.programiz.com/cpp-programming"^^xsd:anyURI .
+
+:CProgrammingTutorial a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :keywords "c, туториал, английский" ;
+    :title "C Programming Tutorial" ;
+    :url "https://www.programiz.com/c-programming"^^xsd:anyURI .
+
+:CReference a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :description "Справочник по C" ;
+    :title "C Reference" ;
+    :url "https://en.cppreference.com/w/c"^^xsd:anyURI .
+
+:CStandardLibrary a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :description "Стандартная библиотека C" ;
+    :title "C Standard Library" ;
+    :url "https://en.cppreference.com/w/c/header"^^xsd:anyURI .
+
+:CTutorialTutorialsPoint a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :keywords "c, туториал, английский" ;
+    :title "C Tutorial - TutorialsPoint" ;
+    :url "https://www.tutorialspoint.com/cprogramming/index.htm"^^xsd:anyURI .
+
+:CYellowBook a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :CSharp ;
+    :keywords "c#, обучение, бесплатно, английский" ;
+    :title "C# Yellow Book" ;
+    :url "https://www.csharpcourse.com/"^^xsd:anyURI ;
+    :writtenBy :RobMiles .
+
+:CinDepth a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :CSharp ;
+    :keywords "c#, продвинутый, бесплатно, английский" ;
+    :title "C# in Depth" ;
+    :url "https://csharpindepth.com/"^^xsd:anyURI ;
+    :writtenBy :JonSkeet .
+
+:CodecademyJavaScript a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, курс, codecademy, английский" ;
+    :title "Codecademy JavaScript" ;
+    :url "https://www.codecademy.com/learn/introduction-to-javascript"^^xsd:anyURI .
+
+:CodecademyPythonCourse a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, курс, codecademy, английский" ;
+    :title "Codecademy Python Course" ;
+    :url "https://www.codecademy.com/learn/learn-python-3"^^xsd:anyURI .
+
+:CoreJavaVolumeI a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, основы, бесплатно, английский, средний" ;
+    :title "Core Java Volume I" ;
+    :url "https://horstmann.com/corejava/"^^xsd:anyURI ;
+    :writtenBy :CayHorstmann .
+
+:Cдляначинающих a :Book,
+        :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :C,
+        :CPlusPlus ;
+    :keywords "c++, туториал, русский",
+        "c, обучение, русский, бесплатно" ;
+    :title "C для начинающих",
+        "C++ для начинающих" ;
+    :url "https://metanit.com/c/tutorial/"^^xsd:anyURI,
+        "https://metanit.com/cpp/tutorial/"^^xsd:anyURI ;
+    :writtenBy :Metanit .
+
+:Cдлячайников a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :CPlusPlus ;
+    :keywords "c++, обучение, русский, бесплатно, начальный" ;
+    :title "C++ для чайников" ;
+    :url "https://www.wiley.com/en-us/C%2B%2B+For+Dummies%2C+7th+Edition-p-9781118823774"^^xsd:anyURI ;
+    :writtenBy :СтефанРДэвис .
+
+:Cнарусском a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :description "Справочник по C на русском" ;
+    :title "C на русском" ;
+    :url "https://ru.cppreference.com/w/c"^^xsd:anyURI .
+
+:DennisRitchie a :Author,
+        owl:NamedIndividual .
+
+:DiveIntoPython3 a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, продвинутый, бесплатно, английский" ;
+    :title "Dive Into Python 3" ;
+    :url "https://diveintopython3.net/"^^xsd:anyURI ;
+    :writtenBy :MarkPilgrim .
+
+:DouglasCrockford a :Author,
+        owl:NamedIndividual .
+
+:ECMAScriptSpecification a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :description "Спецификация ECMAScript" ;
+    :title "ECMAScript Specification" ;
+    :url "https://tc39.es/ecma262/"^^xsd:anyURI .
+
+:EffectiveJava a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, лучшие практики, бесплатно, английский, продвинутый" ;
+    :title "Effective Java" ;
+    :url "https://www.informit.com/articles/article.aspx?p=1216151"^^xsd:anyURI ;
+    :writtenBy :JoshuaBloch .
+
+:EffectiveModernC a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :CPlusPlus ;
+    :keywords "c++, лучшие практики, бесплатно, английский, продвинутый" ;
+    :title "Effective Modern C++" ;
+    :url "https://www.aristeia.com/books.html"^^xsd:anyURI ;
+    :writtenBy :ScottMeyers .
+
+:EffectivePython a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, лучшие практики, бесплатно, английский, продвинутый" ;
+    :title "Effective Python" ;
+    :url "https://effectivepython.com/"^^xsd:anyURI ;
+    :writtenBy :BrettSlatkin .
+
+:EloquentJavaScript a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, обучение, бесплатно, английский" ;
+    :title "Eloquent JavaScript" ;
+    :url "https://eloquentjavascript.net/"^^xsd:anyURI ;
+    :writtenBy :MarijnHaverbeke .
+
+:ExpertCProgramming a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :keywords "c, продвинутый, бесплатно, английский, продвинутый" ;
+    :title "Expert C Programming" ;
+    :url "https://www.pdfdrive.com/expert-c-programming-deep-c-secrets-e187620909.html"^^xsd:anyURI ;
+    :writtenBy :PetervanderLinden .
+
+:ExploringES6 a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, es6, бесплатно, английский, средний" ;
+    :title "Exploring ES6" ;
+    :url "https://exploringjs.com/es6/"^^xsd:anyURI ;
+    :writtenBy :AxelRauschmayer .
+
+:ExternalSource_1777898133_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.iprbookshop.ru/search.html?search=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:35:33.402779" ;
+    :sourceName "IPR SMART" ;
+    :title "IPR SMART: материалы по запросу 'цикл for в python'" .
+
+:ExternalSource_1777898133_2 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://lib.sstu.ru/el_res/work/elektronnaya-biblioteka/1221/> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:35:33.402779" ;
+    :sourceName "Электронная библиотека СГТУ" ;
+    :title "Электронная библиотека СГТУ: материалы по 'цикл for в python'" .
+
+:ExternalSource_1777898133_3 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+official+documentation> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:35:33.402779" ;
+    :sourceName "Web Search" ;
+    :title "Поиск документации по 'цикл for в python'" .
+
+:ExternalSource_1777898268_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.iprbookshop.ru/search.html?search=%D1%87%D1%82%D0%BE+%D1%82%D0%B0%D0%BA%D0%BE%D0%B5+%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "что такое цикл for в python" ;
+    :retrievedAt "2026-05-04T12:37:48.421772" ;
+    :sourceName "IPR SMART" ;
+    :title "IPR SMART: материалы по запросу 'что такое цикл for в python'" .
+
+:ExternalSource_1777898268_2 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://lib.sstu.ru/el_res/work/elektronnaya-biblioteka/1221/> ;
+    :queryText "что такое цикл for в python" ;
+    :retrievedAt "2026-05-04T12:37:48.421772" ;
+    :sourceName "Электронная библиотека СГТУ" ;
+    :title "Электронная библиотека СГТУ: материалы по 'что такое цикл for в python'" .
+
+:ExternalSource_1777898268_3 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%87%D1%82%D0%BE+%D1%82%D0%B0%D0%BA%D0%BE%D0%B5+%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+official+documentation> ;
+    :queryText "что такое цикл for в python" ;
+    :retrievedAt "2026-05-04T12:37:48.421772" ;
+    :sourceName "Web Search" ;
+    :title "Поиск документации по 'что такое цикл for в python'" .
+
+:ExternalSource_1777898484_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.iprbookshop.ru/> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:41:24.276941" ;
+    :sourceName "IPR SMART" ;
+    :title "IPR SMART: материалы по запросу 'цикл for в python'" .
+
+:ExternalSource_1777898484_2 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://lib.sstu.ru/el_res/work/elektronnaya-biblioteka/1221/> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:41:24.276941" ;
+    :sourceName "Электронная библиотека СГТУ" ;
+    :title "Электронная библиотека СГТУ: материалы по 'цикл for в python'" .
+
+:ExternalSource_1777898484_3 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=site%3Aiprbookshop.ru+%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:41:24.276941" ;
+    :sourceName "Google (site:iprbookshop.ru)" ;
+    :title "Поиск по IPR SMART в браузере: 'цикл for в python'" .
+
+:ExternalSource_1777898484_4 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.58e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+official+documentation> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:41:24.276941" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'цикл for в python'" .
+
+:ExternalSource_1777898570_1 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 6.38e+01 ;
+    :hasSource <https://www.iprbookshop.ru/> ;
+    :queryText "объектно-ориентированное программирование в java" ;
+    :retrievedAt "2026-05-04T12:42:50.118058" ;
+    :sourceName "IPR SMART" ;
+    :title "IPR SMART: материалы по запросу 'объектно-ориентированное программирование в java'" .
+
+:ExternalSource_1777898570_2 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 6.28e+01 ;
+    :hasSource <https://lib.sstu.ru/el_res/work/elektronnaya-biblioteka/1221/> ;
+    :queryText "объектно-ориентированное программирование в java" ;
+    :retrievedAt "2026-05-04T12:42:50.118058" ;
+    :sourceName "Электронная библиотека СГТУ" ;
+    :title "Электронная библиотека СГТУ: материалы по 'объектно-ориентированное программирование в java'" .
+
+:ExternalSource_1777898570_3 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 6.18e+01 ;
+    :hasSource <https://www.google.com/search?q=site%3Aiprbookshop.ru+%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BD%D0%BE-%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5+%D0%B2+java> ;
+    :queryText "объектно-ориентированное программирование в java" ;
+    :retrievedAt "2026-05-04T12:42:50.118058" ;
+    :sourceName "Google (site:iprbookshop.ru)" ;
+    :title "Поиск по IPR SMART в браузере: 'объектно-ориентированное программирование в java'" .
+
+:ExternalSource_1777898570_4 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 6.08e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BD%D0%BE-%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5+%D0%B2+java+official+documentation> ;
+    :queryText "объектно-ориентированное программирование в java" ;
+    :retrievedAt "2026-05-04T12:42:50.118058" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'объектно-ориентированное программирование в java'" .
+
+:ExternalSource_1777898826_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:47:06.932698" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:ExternalSource_1777898826_2 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+official+documentation> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:47:06.932698" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'цикл for в python'" .
+
+:ExternalSource_1777898826_3 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+tutorial+guide+examples> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:47:06.932698" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'цикл for в python'" .
+
+:ExternalSource_1777898902_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:48:22.925559" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:ExternalSource_1777899284_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:54:44.137625" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:ExternalSource_1777899284_2 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+official+documentation> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:54:44.137625" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'цикл for в python'" .
+
+:ExternalSource_1777899284_3 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+tutorial+guide+examples> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:54:44.137625" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'цикл for в python'" .
+
+:ExternalSource_1777899305_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:55:05.981173" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:ExternalSource_1777899305_2 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+official+documentation> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:55:05.981173" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'цикл for в python'" .
+
+:ExternalSource_1777899305_3 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+tutorial+guide+examples> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:55:05.981173" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'цикл for в python'" .
+
+:ExternalSource_1777899329_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:55:29.298411" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:ExternalSource_1777899329_2 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+official+documentation> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:55:29.298411" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'цикл for в python'" .
+
+:ExternalSource_1777899329_3 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+tutorial+guide+examples> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:55:29.298411" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'цикл for в python'" .
+
+:ExternalSource_1777899420_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:57:00.747218" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:ExternalSource_1777899420_2 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+official+documentation> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:57:00.747218" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'цикл for в python'" .
+
+:ExternalSource_1777899420_3 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+tutorial+guide+examples> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:57:00.747218" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'цикл for в python'" .
+
+:ExternalSource_1777899536_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:58:56.767349" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:ExternalSource_1777899536_2 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+official+documentation> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:58:56.767349" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'цикл for в python'" .
+
+:ExternalSource_1777899536_3 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+tutorial+guide+examples> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:58:56.767349" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'цикл for в python'" .
+
+:ExternalSource_1777900039_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T13:07:19.938610" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:ExternalSource_1777900039_2 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+official+documentation> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T13:07:19.938610" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'цикл for в python'" .
+
+:ExternalSource_1777900039_3 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+tutorial+guide+examples> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T13:07:19.938610" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'цикл for в python'" .
+
+:ExternalSource_1777900215_1 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+Java> ;
+    :queryText "цикл for в Java" ;
+    :retrievedAt "2026-05-04T13:10:15.899284" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в Java'" .
+
+:ExternalSource_1777900215_2 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+Java+official+documentation> ;
+    :queryText "цикл for в Java" ;
+    :retrievedAt "2026-05-04T13:10:15.899284" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'цикл for в Java'" .
+
+:ExternalSource_1777900215_3 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+Java+tutorial+guide+examples> ;
+    :queryText "цикл for в Java" ;
+    :retrievedAt "2026-05-04T13:10:15.899284" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'цикл for в Java'" .
+
+:ExternalSource_1778066547_1 a :SourceDocument ;
+    :aboutLanguage :CSharp ;
+    :confidenceScore 6.38e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0+%D0%BD%D0%B0+CSharp> ;
+    :queryText "разработка на CSharp" ;
+    :retrievedAt "2026-05-06T11:22:27.691914" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'разработка на CSharp'" .
+
+:ExternalSource_1778066547_2 a :SourceDocument ;
+    :aboutLanguage :CSharp ;
+    :confidenceScore 6.28e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0+%D0%BD%D0%B0+CSharp+official+documentation> ;
+    :queryText "разработка на CSharp" ;
+    :retrievedAt "2026-05-06T11:22:27.691914" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'разработка на CSharp'" .
+
+:ExternalSource_1778066547_3 a :SourceDocument ;
+    :aboutLanguage :CSharp ;
+    :confidenceScore 6.18e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0+%D0%BD%D0%B0+CSharp+tutorial+guide+examples> ;
+    :queryText "разработка на CSharp" ;
+    :retrievedAt "2026-05-06T11:22:27.691914" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'разработка на CSharp'" .
+
+:ExternalSource_1778066580_1 a :SourceDocument ;
+    :aboutLanguage :CSharp ;
+    :confidenceScore 6.38e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0+%D0%BD%D0%B0+CSharp> ;
+    :queryText "разработка на CSharp" ;
+    :retrievedAt "2026-05-06T11:23:00.604237" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'разработка на CSharp'" .
+
+:ExternalSource_1778080078_1 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-06T15:07:58.584440" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:ExternalSource_1778080078_2 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+official+documentation> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-06T15:07:58.584440" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'цикл for в python'" .
+
+:ExternalSource_1778080078_3 a :SourceDocument ;
+    :aboutLanguage :Python ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python+tutorial+guide+examples> ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-06T15:07:58.584440" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'цикл for в python'" .
+
+:ExternalSource_1778087781_1 a :SourceDocument ;
+    :aboutLanguage :C ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0+%D0%BF%D0%BE+c%2B%2B+%D0%B4%D0%BB%D1%8F+%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85> ;
+    :queryText "книга по c++ для начинающих" ;
+    :retrievedAt "2026-05-06T17:16:21.933565" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'книга по c++ для начинающих'" .
+
+:ExternalSource_1778087781_2 a :SourceDocument ;
+    :aboutLanguage :C ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0+%D0%BF%D0%BE+c%2B%2B+%D0%B4%D0%BB%D1%8F+%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85+official+documentation> ;
+    :queryText "книга по c++ для начинающих" ;
+    :retrievedAt "2026-05-06T17:16:21.933565" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'книга по c++ для начинающих'" .
+
+:ExternalSource_1778087781_3 a :SourceDocument ;
+    :aboutLanguage :C ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0+%D0%BF%D0%BE+c%2B%2B+%D0%B4%D0%BB%D1%8F+%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85+tutorial+guide+examples> ;
+    :queryText "книга по c++ для начинающих" ;
+    :retrievedAt "2026-05-06T17:16:21.933565" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'книга по c++ для начинающих'" .
+
+:ExternalSource_1778087923_1 a :SourceDocument ;
+    :aboutLanguage :C ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0+%D0%BF%D0%BE+c%2B%2B+%D0%B4%D0%BB%D1%8F+%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85> ;
+    :queryText "книга по c++ для начинающих" ;
+    :retrievedAt "2026-05-06T17:18:43.211147" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'книга по c++ для начинающих'" .
+
+:ExternalSource_1778087923_2 a :SourceDocument ;
+    :aboutLanguage :C ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0+%D0%BF%D0%BE+c%2B%2B+%D0%B4%D0%BB%D1%8F+%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85+official+documentation> ;
+    :queryText "книга по c++ для начинающих" ;
+    :retrievedAt "2026-05-06T17:18:43.211147" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'книга по c++ для начинающих'" .
+
+:ExternalSource_1778087923_3 a :SourceDocument ;
+    :aboutLanguage :C ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0+%D0%BF%D0%BE+c%2B%2B+%D0%B4%D0%BB%D1%8F+%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85+tutorial+guide+examples> ;
+    :queryText "книга по c++ для начинающих" ;
+    :retrievedAt "2026-05-06T17:18:43.211147" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'книга по c++ для начинающих'" .
+
+:ExternalSource_1778088553_1 a :SourceDocument ;
+    :aboutLanguage :C ;
+    :confidenceScore 8.88e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0+%D0%BF%D0%BE+c%2B%2B+%D0%B4%D0%BB%D1%8F+%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85> ;
+    :queryText "книга по c++ для начинающих" ;
+    :retrievedAt "2026-05-06T17:29:13.682729" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'книга по c++ для начинающих'" .
+
+:ExternalSource_1778088553_2 a :SourceDocument ;
+    :aboutLanguage :C ;
+    :confidenceScore 8.78e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0+%D0%BF%D0%BE+c%2B%2B+%D0%B4%D0%BB%D1%8F+%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85+official+documentation> ;
+    :queryText "книга по c++ для начинающих" ;
+    :retrievedAt "2026-05-06T17:29:13.682729" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'книга по c++ для начинающих'" .
+
+:ExternalSource_1778088553_3 a :SourceDocument ;
+    :aboutLanguage :C ;
+    :confidenceScore 8.68e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0+%D0%BF%D0%BE+c%2B%2B+%D0%B4%D0%BB%D1%8F+%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85+tutorial+guide+examples> ;
+    :queryText "книга по c++ для начинающих" ;
+    :retrievedAt "2026-05-06T17:29:13.682729" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'книга по c++ для начинающих'" .
+
+:ExternalSource_1778088629_1 a :SourceDocument ;
+    :confidenceScore 6.38e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9D%D0%B0%D1%82%D0%B0%D0%BD+%D0%9A%D0%BB%D0%B0%D1%80%D0%BA> ;
+    :queryText "Натан Кларк" ;
+    :retrievedAt "2026-05-06T17:30:29.035223" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'Натан Кларк'" .
+
+:ExternalSource_1778088629_2 a :SourceDocument ;
+    :confidenceScore 6.28e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9D%D0%B0%D1%82%D0%B0%D0%BD+%D0%9A%D0%BB%D0%B0%D1%80%D0%BA+official+documentation> ;
+    :queryText "Натан Кларк" ;
+    :retrievedAt "2026-05-06T17:30:29.035223" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'Натан Кларк'" .
+
+:ExternalSource_1778088629_3 a :SourceDocument ;
+    :confidenceScore 6.18e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9D%D0%B0%D1%82%D0%B0%D0%BD+%D0%9A%D0%BB%D0%B0%D1%80%D0%BA+tutorial+guide+examples> ;
+    :queryText "Натан Кларк" ;
+    :retrievedAt "2026-05-06T17:30:29.035223" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'Натан Кларк'" .
+
+:ExternalSource_1778088654_1 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 6.38e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9D%D0%B0%D1%82%D0%B0%D0%BD+%D0%9A%D0%BB%D0%B0%D1%80%D0%BA+java> ;
+    :queryText "Натан Кларк java" ;
+    :retrievedAt "2026-05-06T17:30:54.122937" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'Натан Кларк java'" .
+
+:ExternalSource_1778088654_2 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 6.28e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9D%D0%B0%D1%82%D0%B0%D0%BD+%D0%9A%D0%BB%D0%B0%D1%80%D0%BA+java+official+documentation> ;
+    :queryText "Натан Кларк java" ;
+    :retrievedAt "2026-05-06T17:30:54.122937" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'Натан Кларк java'" .
+
+:ExternalSource_1778088654_3 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 6.18e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9D%D0%B0%D1%82%D0%B0%D0%BD+%D0%9A%D0%BB%D0%B0%D1%80%D0%BA+java+tutorial+guide+examples> ;
+    :queryText "Натан Кларк java" ;
+    :retrievedAt "2026-05-06T17:30:54.122937" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'Натан Кларк java'" .
+
+:ExternalSource_1778088691_1 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 6.38e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9D%D0%B0%D1%82%D0%B0%D0%BD+%D0%9A%D0%BB%D0%B0%D1%80%D0%BA+java> ;
+    :queryText "Натан Кларк java" ;
+    :retrievedAt "2026-05-06T17:31:31.441207" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'Натан Кларк java'" .
+
+:ExternalSource_1778088691_2 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 6.28e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9D%D0%B0%D1%82%D0%B0%D0%BD+%D0%9A%D0%BB%D0%B0%D1%80%D0%BA+java+official+documentation> ;
+    :queryText "Натан Кларк java" ;
+    :retrievedAt "2026-05-06T17:31:31.441207" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'Натан Кларк java'" .
+
+:ExternalSource_1778088691_3 a :SourceDocument ;
+    :aboutLanguage :Java ;
+    :confidenceScore 6.18e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9D%D0%B0%D1%82%D0%B0%D0%BD+%D0%9A%D0%BB%D0%B0%D1%80%D0%BA+java+tutorial+guide+examples> ;
+    :queryText "Натан Кларк java" ;
+    :retrievedAt "2026-05-06T17:31:31.441207" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'Натан Кларк java'" .
+
+:ExternalSource_1778088859_1 a :SourceDocument ;
+    :confidenceScore 6.38e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9C%D0%B0%D1%80%D0%BA+%D0%9B%D1%83%D1%82%D1%86> ;
+    :queryText "Марк Лутц" ;
+    :retrievedAt "2026-05-06T17:34:19.885982" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'Марк Лутц'" .
+
+:ExternalSource_1778088859_2 a :SourceDocument ;
+    :confidenceScore 6.28e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9C%D0%B0%D1%80%D0%BA+%D0%9B%D1%83%D1%82%D1%86+official+documentation> ;
+    :queryText "Марк Лутц" ;
+    :retrievedAt "2026-05-06T17:34:19.885982" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'Марк Лутц'" .
+
+:ExternalSource_1778088859_3 a :SourceDocument ;
+    :confidenceScore 6.18e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9C%D0%B0%D1%80%D0%BA+%D0%9B%D1%83%D1%82%D1%86+tutorial+guide+examples> ;
+    :queryText "Марк Лутц" ;
+    :retrievedAt "2026-05-06T17:34:19.885982" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'Марк Лутц'" .
+
+:ExternalSource_1778088991_1 a :SourceDocument ;
+    :confidenceScore 6.38e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9C%D0%B0%D1%80%D0%BA+%D0%9B%D1%83%D1%82%D1%86> ;
+    :queryText "Марк Лутц" ;
+    :retrievedAt "2026-05-06T17:36:31.522719" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'Марк Лутц'" .
+
+:ExternalSource_1778088991_2 a :SourceDocument ;
+    :confidenceScore 6.28e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9C%D0%B0%D1%80%D0%BA+%D0%9B%D1%83%D1%82%D1%86+official+documentation> ;
+    :queryText "Марк Лутц" ;
+    :retrievedAt "2026-05-06T17:36:31.522719" ;
+    :sourceName "Google (official docs)" ;
+    :title "Поиск официальной документации по 'Марк Лутц'" .
+
+:ExternalSource_1778088991_3 a :SourceDocument ;
+    :confidenceScore 6.18e+01 ;
+    :hasSource <https://www.google.com/search?q=%D0%9C%D0%B0%D1%80%D0%BA+%D0%9B%D1%83%D1%82%D1%86+tutorial+guide+examples> ;
+    :queryText "Марк Лутц" ;
+    :retrievedAt "2026-05-06T17:36:31.522719" ;
+    :sourceName "Google (tutorials)" ;
+    :title "Поиск учебных материалов по 'Марк Лутц'" .
+
+:FluentPython a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, продвинутый, бесплатно, английский, продвинутый" ;
+    :title "Fluent Python" ;
+    :url "https://www.oreilly.com/library/view/fluent-python/9781491946237/"^^xsd:anyURI ;
+    :writtenBy :LucianoRamalho .
+
+:FreeCodeCampJavaScript a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, курс, freecodecamp, английский" ;
+    :title "FreeCodeCamp JavaScript" ;
+    :url "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/"^^xsd:anyURI .
+
+:FreeCodeCampPython a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, курс, freecodecamp, английский" ;
+    :title "FreeCodeCamp Python" ;
+    :url "https://www.freecodecamp.org/learn/scientific-computing-with-python/"^^xsd:anyURI .
+
+:GNUCManual a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :description "Руководство по GNU C" ;
+    :title "GNU C Manual" ;
+    :url "https://www.gnu.org/software/gnu-c-manual/"^^xsd:anyURI .
+
+:HeadFirstC a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :CSharp ;
+    :keywords "c#, обучение, бесплатно, английский, начальный" ;
+    :title "Head First C#" ;
+    :url "https://www.oreilly.com/library/view/head-first-c/9781449380342/"^^xsd:anyURI ;
+    :writtenBy :AndrewStellman .
+
+:HeadFirstJava a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, обучение, бесплатно, английский, начальный" ;
+    :title "Head First Java" ;
+    :url "https://www.oreilly.com/library/view/head-first-java/0596009208/"^^xsd:anyURI ;
+    :writtenBy :KathySierra .
+
+:HexletКурсPython a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, курс, hexlet, русский" ;
+    :title "Hexlet - Курс Python" ;
+    :url "https://ru.hexlet.io/courses/python-basics"^^xsd:anyURI .
+
+:ISOC a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :CPlusPlus ;
+    :description "Официальный сайт C++" ;
+    :title "ISO C++" ;
+    :url "https://isocpp.org/"^^xsd:anyURI .
+
+:InteractivePython a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, интерактивный, английский, средний" ;
+    :title "Interactive Python" ;
+    :url "https://runestone.academy/runestone/books/published/pythonds/index.html"^^xsd:anyURI .
+
+:Intermediate a owl:Class ;
+    rdfs:subClassOf :DifficultyLevel .
+
+:IntroductiontoProgrammingUsingJava a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, обучение, бесплатно, английский" ;
+    :title "Introduction to Programming Using Java" ;
+    :url "https://math.hws.edu/javanotes/"^^xsd:anyURI ;
+    :writtenBy :DavidJEck .
+
+:JavaAPIDocumentation a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :description "API документация Java" ;
+    :title "Java API Documentation" ;
+    :url "https://docs.oracle.com/javase/8/docs/api/"^^xsd:anyURI .
+
+:JavaBestPractices a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, лучшие практики, английский, средний" ;
+    :title "Java Best Practices" ;
+    :url "https://www.oracle.com/java/technologies/javase/codeconventions-contents.html"^^xsd:anyURI .
+
+:JavaConcurrencyinPractice a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, многопоточность, бесплатно, английский, продвинутый" ;
+    :title "Java Concurrency in Practice" ;
+    :url "https://jcip.net/"^^xsd:anyURI ;
+    :writtenBy :BrianGoetz .
+
+:JavaDesignPatterns a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, паттерны, английский, средний" ;
+    :title "Java Design Patterns" ;
+    :url "https://www.javatpoint.com/design-patterns-in-java"^^xsd:anyURI .
+
+:JavaDocumentation a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :description "Официальная документация Java" ;
+    :title "Java Documentation" ;
+    :url "https://docs.oracle.com/java/"^^xsd:anyURI .
+
+:JavaPerformanceTuning a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, производительность, английский, продвинутый" ;
+    :title "Java Performance Tuning" ;
+    :url "https://www.oracle.com/technical-resources/articles/java/architect-performance.html"^^xsd:anyURI .
+
+:JavaProgrammingNotes a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, обучение, бесплатно, английский" ;
+    :title "Java Programming Notes" ;
+    :url "https://www.cs.armstrong.edu/liang/intro10e/"^^xsd:anyURI ;
+    :writtenBy :FredSwartz .
+
+:JavaProgrammingProgramiz a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, программирование, английский, начальный" ;
+    :title "Java Programming - Programiz" ;
+    :url "https://www.programiz.com/java-programming"^^xsd:anyURI .
+
+:JavaRushИнтерактивныйкурс a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, курс, обучение, русский" ;
+    :title "JavaRush - Интерактивный курс" ;
+    :url "https://javarush.ru/"^^xsd:anyURI .
+
+:JavaSEDocumentation a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :description "Документация Java SE" ;
+    :title "Java SE Documentation" ;
+    :url "https://docs.oracle.com/javase/"^^xsd:anyURI .
+
+:JavaScript30 a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, курс, английский, средний" ;
+    :title "JavaScript30" ;
+    :url "https://javascript30.com/"^^xsd:anyURI .
+
+:JavaScriptAllongé a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, функциональное программирование, бесплатно, английский, продвинутый" ;
+    :title "JavaScript Allongé" ;
+    :url "https://leanpub.com/javascriptallongesix"^^xsd:anyURI ;
+    :writtenBy :ReginaldBraithwaite .
+
+:JavaScriptBestPractices a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, лучшие практики, английский, средний" ;
+    :title "JavaScript Best Practices" ;
+    :url "https://www.w3schools.com/js/js_best_practices.asp"^^xsd:anyURI .
+
+:JavaScriptDesignPatterns a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, паттерны, английский, продвинутый" ;
+    :title "JavaScript Design Patterns" ;
+    :url "https://www.patterns.dev/"^^xsd:anyURI .
+
+:JavaScriptPerformanceTips a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, производительность, английский, продвинутый" ;
+    :title "JavaScript Performance Tips" ;
+    :url "https://developer.mozilla.org/en-US/docs/Web/Performance"^^xsd:anyURI .
+
+:JavaScriptReference a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :description "Справочник JavaScript на русском" ;
+    :title "JavaScript Reference" ;
+    :url "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference"^^xsd:anyURI .
+
+:JavaScriptTheDefinitiveGuide a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, справочник, бесплатно, английский" ;
+    :title "JavaScript: The Definitive Guide" ;
+    :url "https://github.com/davidflanagan/javascript-definitive-guide"^^xsd:anyURI ;
+    :writtenBy :DavidFlanagan .
+
+:JavaScriptinfo a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :description "Современный учебник JavaScript" ;
+    :title "JavaScript.info" ;
+    :url "https://javascript.info/"^^xsd:anyURI .
+
+:JavaScriptдляначинающих a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, обучение, русский, начальный" ;
+    :title "JavaScript для начинающих" ;
+    :url "https://metanit.com/web/javascript/"^^xsd:anyURI .
+
+:JavaScriptдлячайников a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, обучение, русский, бесплатно" ;
+    :title "JavaScript для чайников" ;
+    :url "https://eloquentjavascript.net/Eloquent_JavaScript.pdf"^^xsd:anyURI ;
+    :writtenBy :MarijnHaverbeke .
+
+:JavaScriptнарусском a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :description "Современный учебник JavaScript на русском" ;
+    :title "JavaScript на русском" ;
+    :url "https://learn.javascript.ru/"^^xsd:anyURI .
+
+:JavaTheCompleteReference a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, справочник, бесплатно, английский, средний" ;
+    :title "Java: The Complete Reference" ;
+    :url "https://www.mheducation.com/highered/product/java-complete-reference-schildt/M9781260440249.html"^^xsd:anyURI ;
+    :writtenBy :HerbertSchildt .
+
+:JavaTutorialTutorialsPoint a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, туториал, английский, начальный" ;
+    :title "Java Tutorial - TutorialsPoint" ;
+    :url "https://www.tutorialspoint.com/java/index.htm"^^xsd:anyURI .
+
+:JavaTutorials a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :description "Официальные туториалы Java" ;
+    :title "Java Tutorials" ;
+    :url "https://docs.oracle.com/javase/tutorial/"^^xsd:anyURI .
+
+:Javaдляначинающих a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, обучение, русский, бесплатно" ;
+    :title "Java для начинающих" ;
+    :url "https://metanit.com/java/tutorial/"^^xsd:anyURI ;
+    :writtenBy :ГербертШилдт .
+
+:JavaдляначинающихСтатьи a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, статьи, русский, начальный" ;
+    :title "Java для начинающих - Статьи" ;
+    :url "https://metanit.com/java/articles/"^^xsd:anyURI .
+
+:JavaдляначинающихУчебник a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, обучение, русский, бесплатно" ;
+    :title "Java для начинающих - Учебник" ;
+    :url "https://metanit.com/java/tutorial/"^^xsd:anyURI ;
+    :writtenBy :Metanit .
+
+:Javaдлячайников a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, обучение, русский, бесплатно, начальный" ;
+    :title "Java для чайников" ;
+    :url "https://www.wiley.com/en-us/Java+For+Dummies%2C+7th+Edition-p-9781119235552"^^xsd:anyURI ;
+    :writtenBy :БарриБерд .
+
+:Javaдокументациянарусском a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :description "Учебник Java на русском языке" ;
+    :title "Java документация на русском" ;
+    :url "https://metanit.com/java/"^^xsd:anyURI .
+
+:Javaнарусском a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :description "Русскоязычные материалы по Java" ;
+    :title "Java на русском" ;
+    :url "https://javarush.ru/"^^xsd:anyURI .
+
+:KNKing a :Author,
+        owl:NamedIndividual .
+
+:KnowledgeFact_C_c_1778087853 a :KnowledgeFact ;
+    :aboutLanguage :C ;
+    :basedOnQuery "книга по c++ для начинающих" ;
+    :confidenceScore 9e+01 ;
+    :factText "Хорошие книги для начинающего C++ Reddit" ;
+    :hasSource <https://www.reddit.com/r/learnprogramming/comments/x17lhy/good_books_for_a_c_beginner/?tl=ru> ;
+    :materialType "Article" ;
+    :predicateType "hasExplanation" ;
+    :queryText "книга по c++ для начинающих" ;
+    :retrievedAt "2026-05-06T17:17:33.936704" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'книга по c++ для начинающих'" .
+
+:KnowledgeFact_Java_for_Java_1777900241 a :KnowledgeFact ;
+    :aboutLanguage :Java ;
+    :basedOnQuery "цикл for в Java" ;
+    :confidenceScore 9e+01 ;
+    :factText "Цикл for в Java — это управляющая конструкция для многократного выполнения блока кода, когда число итераций известно заранее. Он объединяет инициализацию счетчика, условие продолжения и изменение счетчика в одной строке: for (инициализация; условие; инкремент) { // тело цикла }. Идеален для перебора массивов и коллекций." ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+Java> ;
+    :predicateType "hasExplanation" ;
+    :queryText "цикл for в Java" ;
+    :retrievedAt "2026-05-04T13:10:41.176568" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в Java'" .
+
+:KnowledgeFact_Java_for_Java_1777900270 a :KnowledgeFact ;
+    :aboutLanguage :Java ;
+    :basedOnQuery "цикл for в Java" ;
+    :confidenceScore 9e+01 ;
+    :factText "JavaRush: цикл for в Java" ;
+    :hasSource <https://javarush.com/groups/posts/for-v-java> ;
+    :predicateType "hasExplanation" ;
+    :queryText "цикл for в Java" ;
+    :retrievedAt "2026-05-04T13:11:10.870980" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в Java'" .
+
+:KnowledgeFact_Python_Item_1778088986 a :KnowledgeFact ;
+    :aboutLanguage :Python ;
+    :basedOnQuery "Марк Лутц" ;
+    :confidenceScore 9e+01 ;
+    :factText "Марк Лутц. Программирование на Python" ;
+    :hasSource <https://iro23.ru/sites/default/files/mark_lutc._programmirovanie_na_python.pdf> ;
+    :materialType "Book" ;
+    :predicateType "hasExplanation" ;
+    :queryText "Марк Лутц" ;
+    :retrievedAt "2026-05-06T17:36:26.186847" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'Марк Лутц'" .
+
+:KnowledgeFact_Python_for_python_1777899406 a :KnowledgeFact ;
+    :aboutLanguage :Python ;
+    :basedOnQuery "цикл for в python" ;
+    :confidenceScore 9e+01 ;
+    :factText "Цикл for в Python — это конструкция для перебора элементов последовательности (списка, строки, кортежа, словаря) или итерируемых объектов. Он автоматически перебирает элементы один за другим, выполняя блок кода (тело цикла) до завершения коллекции. Синтаксис: for item in sequence:. Часто используется с range() для повторения действий" ;
+    :hasSource <https://www.google.com/search?q=%D1%86%D0%B8%D0%BA%D0%BB+for+%D0%B2+python> ;
+    :predicateType "hasExplanation" ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T12:56:46.843593" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:KnowledgeFact_Python_for_python_1777900154 a :KnowledgeFact ;
+    :aboutLanguage :Python ;
+    :basedOnQuery "цикл for в python" ;
+    :confidenceScore 9e+01 ;
+    :factText "JavaRush: цикл for в Python" ;
+    :hasSource <https://javarush.com/groups/posts/cikl-for-v-python> ;
+    :predicateType "hasExplanation" ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-04T13:09:14.611505" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:KnowledgeFact_Python_for_python_1779048168 a :KnowledgeFact ;
+    :aboutLanguage :Python ;
+    :basedOnQuery "цикл for в python" ;
+    :confidenceScore 9e+01 ;
+    :factText "Informatics.ru: цикл for в Python" ;
+    :hasSource <https://informatics.ru/blog/cikly-v-python-chto-eto-vidy-i-zachem-nuzhny/> ;
+    :materialType "Article" ;
+    :predicateType "hasExplanation" ;
+    :queryText "цикл for в python" ;
+    :retrievedAt "2026-05-17T20:02:48.594425" ;
+    :sourceName "Browser Search" ;
+    :title "Поиск в браузере по запросу: 'цикл for в python'" .
+
+:LearnC a :Book,
+        :Documentation,
+        :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :C,
+        :CPlusPlus,
+        :CSharp ;
+    :description "Официальный учебник C#" ;
+    :keywords "c++, обучение, бесплатно, английский",
+        "c, обучение, английский, начальный" ;
+    :title "Learn C",
+        "Learn C#",
+        "Learn C++" ;
+    :url "https://learn.microsoft.com/dotnet/csharp/"^^xsd:anyURI,
+        "https://www.learn-c.org/"^^xsd:anyURI,
+        "https://www.learncpp.com/"^^xsd:anyURI ;
+    :writtenBy :LearnCPP .
+
+:LearnJavaScriptРусскийучебник a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, учебник, русский" ;
+    :title "Learn JavaScript - Русский учебник" ;
+    :url "https://learn.javascript.ru/"^^xsd:anyURI .
+
+:LearningJavaScriptDesignPatterns a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, паттерны, бесплатно, английский, продвинутый" ;
+    :title "Learning JavaScript Design Patterns" ;
+    :url "https://www.patterns.dev/"^^xsd:anyURI ;
+    :writtenBy :AddyOsmani .
+
+:MDNJavaScriptGuide a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :description "Официальная документация JavaScript от Mozilla" ;
+    :title "MDN JavaScript Guide" ;
+    :url "https://developer.mozilla.org/en-US/docs/Web/JavaScript"^^xsd:anyURI .
+
+:MetanitУчебникC a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :CSharp ;
+    :keywords "c#, учебник, русский" ;
+    :title "Metanit - Учебник C#" ;
+    :url "https://metanit.com/sharp/"^^xsd:anyURI .
+
+:MetanitУчебникJava a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, учебник, русский" ;
+    :title "Metanit - Учебник Java" ;
+    :url "https://metanit.com/java/"^^xsd:anyURI .
+
+:MicrosoftCTutorials a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :CSharp ;
+    :keywords "c#, туториал, microsoft, английский" ;
+    :title "Microsoft C# Tutorials" ;
+    :url "https://docs.microsoft.com/dotnet/csharp/tutorials/"^^xsd:anyURI .
+
+:ModernC a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :keywords "c, современный, бесплатно, английский" ;
+    :title "Modern C" ;
+    :url "https://hal.inria.fr/hal-02383654/document"^^xsd:anyURI ;
+    :writtenBy :JensGustedt .
+
+:ModernCFeatures a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :CPlusPlus ;
+    :keywords "c++, современный, английский, средний" ;
+    :title "Modern C++ Features" ;
+    :url "https://github.com/AnthonyCalandra/modern-cpp-features"^^xsd:anyURI .
+
+:ModernJavaScriptFeatures a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, современный, английский, средний" ;
+    :title "Modern JavaScript Features" ;
+    :url "https://javascript.info/"^^xsd:anyURI .
+
+:ModernJavaScriptTutorial a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, современный, бесплатно, английский" ;
+    :title "Modern JavaScript Tutorial" ;
+    :url "https://javascript.info/"^^xsd:anyURI ;
+    :writtenBy :IlyaKantor .
+
+:NETAPIBrowser a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :CSharp ;
+    :description "API документация .NET" ;
+    :title ".NET API Browser" ;
+    :url "https://docs.microsoft.com/dotnet/api/"^^xsd:anyURI .
+
+:OracleJavaTutorials a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, туториал, oracle, английский" ;
+    :title "Oracle Java Tutorials" ;
+    :url "https://docs.oracle.com/javase/tutorial/"^^xsd:anyURI .
+
+:ProgrammingPrinciplesandPracticeUsingC a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :CPlusPlus ;
+    :keywords "c++, обучение, бесплатно, английский, начальный" ;
+    :title "Programming: Principles and Practice Using C++" ;
+    :url "https://www.stroustrup.com/programming.html"^^xsd:anyURI ;
+    :writtenBy :BjarneStroustrup .
+
+:PydocsДокументацияPython a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :description "Русскоязычная документация Python" ;
+    :title "Pydocs - Документация Python" ;
+    :url "https://pydocs.ru/"^^xsd:anyURI .
+
+:Python3OfficialDocumentation a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :description "Официальная документация Python 3" ;
+    :title "Python 3 Official Documentation" ;
+    :url "https://docs.python.org/3/"^^xsd:anyURI .
+
+:Python3PatternsRecipesandIdioms a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, паттерны, бесплатно, английский" ;
+    :title "Python 3 Patterns, Recipes and Idioms" ;
+    :url "https://python-3-patterns-idioms-test.readthedocs.io/"^^xsd:anyURI ;
+    :writtenBy :BruceEckel .
+
+:Python3дляначинающих a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :description "Основы Python 3 на русском языке" ;
+    :title "Python 3 для начинающих" ;
+    :url "https://pythonworld.ru/osnovy/"^^xsd:anyURI .
+
+:PythonBestPractices a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, лучшие практики, английский, средний" ;
+    :title "Python Best Practices" ;
+    :url "https://docs.python-guide.org/"^^xsd:anyURI .
+
+:PythonCookbook a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, рецепты, бесплатно, английский, продвинутый" ;
+    :title "Python Cookbook" ;
+    :url "https://dabeaz.com/cookbook.html"^^xsd:anyURI ;
+    :writtenBy :DavidBeazley .
+
+:PythonCrashCourse a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, обучение, бесплатно, английский" ;
+    :title "Python Crash Course" ;
+    :url "https://ehmatthes.github.io/pcc/"^^xsd:anyURI ;
+    :writtenBy :EricMatthes .
+
+:PythonDesignPatterns a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, паттерны проектирования, английский, продвинутый" ;
+    :title "Python Design Patterns" ;
+    :url "https://python-patterns.guide/"^^xsd:anyURI .
+
+:PythonPEPIndex a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :description "Python Enhancement Proposals" ;
+    :title "Python PEP Index" ;
+    :url "https://peps.python.org/"^^xsd:anyURI .
+
+:PythonPerformanceTips a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, производительность, английский, продвинутый" ;
+    :title "Python Performance Tips" ;
+    :url "https://wiki.python.org/moin/PythonSpeed/PerformanceTips"^^xsd:anyURI .
+
+:PythonStandardLibrary a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :description "Документация стандартной библиотеки Python" ;
+    :title "Python Standard Library" ;
+    :url "https://docs.python.org/3/library/"^^xsd:anyURI .
+
+:PythonTipsandTricks a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, советы, трюки, английский" ;
+    :title "Python Tips and Tricks" ;
+    :url "https://realpython.com/python-tricks/"^^xsd:anyURI .
+
+:PythonTricks a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, трюки, советы, бесплатно, английский, средний" ;
+    :title "Python Tricks" ;
+    :url "https://realpython.com/python-tricks/"^^xsd:anyURI ;
+    :writtenBy :DanBader .
+
+:PythonTutorИнтерактивныйтуториал a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, интерактивный, обучение, русский" ;
+    :title "Python Tutor - Интерактивный туториал" ;
+    :url "https://pythontutor.ru/"^^xsd:anyURI .
+
+:Pythonдлявсех a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, курс, английский, начальный" ;
+    :title "Python для всех" ;
+    :url "https://www.py4e.com/"^^xsd:anyURI .
+
+:Pythonдляначинающих a :Article,
+        :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, обучение, русский, бесплатно",
+        "python, основы, обучение, русский" ;
+    :title "Python для начинающих" ;
+    :url "https://automatetheboringstuff.com/2e/chapter0/"^^xsd:anyURI,
+        "https://pythonworld.ru/osnovy/"^^xsd:anyURI ;
+    :writtenBy :ЭлСвейгарт .
+
+:Pythonнарусском a :Documentation,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :description "Русскоязычная документация и туториалы по Python" ;
+    :title "Python на русском" ;
+    :url "https://pythonworld.ru/"^^xsd:anyURI .
+
+:RealPython a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, обучение, бесплатно, английский" ;
+    :title "Real Python" ;
+    :url "https://realpython.com/"^^xsd:anyURI ;
+    :writtenBy :RealPythonTeam .
+
+:SpeakingJavaScript a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, обучение, бесплатно, английский, средний" ;
+    :title "Speaking JavaScript" ;
+    :url "https://speakingjs.com/"^^xsd:anyURI ;
+    :writtenBy :AxelRauschmayer .
+
+:StepikКурсJava a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, курс, stepik, русский" ;
+    :title "Stepik - Курс Java" ;
+    :url "https://stepik.org/course/187/"^^xsd:anyURI .
+
+:StepikКурсPython a :Tutorial,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, курс, stepik, русский" ;
+    :title "Stepik - Курс Python" ;
+    :url "https://stepik.org/course/67/"^^xsd:anyURI .
+
+:TheCProgrammingLanguage a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :C ;
+    :keywords "c, классика, бесплатно, английский" ;
+    :title "The C Programming Language" ;
+    :url "https://www.pdfdrive.com/the-c-programming-language-e187620908.html"^^xsd:anyURI ;
+    :writtenBy :BrianKernighanDennisRitchie .
+
+:ThinkJavaHowtoThinkLikeaComputerScientist a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Java ;
+    :keywords "java, обучение, бесплатно, английский" ;
+    :title "Think Java: How to Think Like a Computer Scientist" ;
+    :url "https://greenteapress.com/wp/think-java/"^^xsd:anyURI ;
+    :writtenBy :AllenBDowney .
+
+:ThinkPythonHowtoThinkLikeaComputerScientist a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, обучение, бесплатно, английский" ;
+    :title "Think Python: How to Think Like a Computer Scientist" ;
+    :url "https://greenteapress.com/wp/think-python-2e/"^^xsd:anyURI ;
+    :writtenBy :AllenBDowney .
+
+:YouDontKnowJS a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :JavaScript ;
+    :keywords "javascript, продвинутый, бесплатно, английский" ;
+    :title "You Don't Know JS" ;
+    :url "https://github.com/getify/You-Dont-Know-JS"^^xsd:anyURI ;
+    :writtenBy :KyleSimpson .
+
+:aboutLanguage a owl:ObjectProperty ;
+    rdfs:domain :Publication ;
+    rdfs:range :ProgrammingLanguage .
+
+:basedOnQuery a rdf:Property .
+
+:confidenceScore a rdf:Property .
+
+:creator a owl:DatatypeProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range xsd:string .
+
+:description a owl:DatatypeProperty ;
+    rdfs:domain :Publication ;
+    rdfs:range xsd:string .
+
+:doi a owl:DatatypeProperty ;
+    rdfs:domain :Article ;
+    rdfs:range xsd:string .
+
+:factText a rdf:Property .
+
+:githubStars a owl:DatatypeProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range xsd:integer .
+
+:hasCategory a owl:ObjectProperty ;
+    rdfs:domain :Publication ;
+    rdfs:range :ContentCategory .
+
+:hasDifficulty a owl:ObjectProperty ;
+    rdfs:domain :Publication ;
+    rdfs:range :DifficultyLevel .
+
+:hasFramework a owl:ObjectProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range :Framework .
+
+:hasParadigm a owl:ObjectProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range :Paradigm .
+
+:hasSource a rdf:Property .
+
+:hasTypeSystem a owl:ObjectProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range :TypeSystem .
+
+:isbn a owl:DatatypeProperty ;
+    rdfs:domain :Book ;
+    rdfs:range xsd:string .
+
+:keywords a owl:DatatypeProperty ;
+    rdfs:domain :Publication ;
+    rdfs:range xsd:string .
+
+:latestVersion a owl:DatatypeProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range xsd:string .
+
+:learningCurve a owl:DatatypeProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range xsd:string .
+
+:materialType a rdf:Property .
+
+:predicateType a rdf:Property .
+
+:publicationDate a owl:DatatypeProperty ;
+    rdfs:domain :Publication ;
+    rdfs:range xsd:dateTime .
+
+:queryText a rdf:Property .
+
+:retrievedAt a rdf:Property .
+
+:runsOn a owl:ObjectProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range :Platform .
+
+:sourceName a rdf:Property .
+
+:stackOverflowUsage a owl:DatatypeProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range xsd:string .
+
+:tiobeRank a owl:DatatypeProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range xsd:integer .
+
+:tiobeRating a owl:DatatypeProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range xsd:string .
+
+:title a owl:DatatypeProperty ;
+    rdfs:domain :Publication ;
+    rdfs:range xsd:string .
+
+:url a owl:DatatypeProperty ;
+    rdfs:domain :Publication ;
+    rdfs:range xsd:anyURI .
+
+:usedInDomain a owl:ObjectProperty ;
+    rdfs:domain :ProgrammingLanguage ;
+    rdfs:range :ApplicationDomain .
+
+:writtenBy a owl:ObjectProperty ;
+    rdfs:domain :Publication ;
+    rdfs:range :Author .
+
+:writtenIn a owl:ObjectProperty ;
+    rdfs:domain :Framework ;
+    rdfs:range :ProgrammingLanguage .
+
+:yearCreated a owl:DatatypeProperty ;
+    rdfs:domain :Publication ;
+    rdfs:range xsd:integer .
+
+:БрайанКерниганДеннисРитчи a :Author,
+        owl:NamedIndividual .
+
+:БрюсЭккель a :Author,
+        owl:NamedIndividual .
+
+:ДжошуаБлох a :Author,
+        owl:NamedIndividual .
+
+:ДэвидФлэнаган a :Author,
+        owl:NamedIndividual .
+
+:ИзучаемPython a :Book,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, обучение, русский, бесплатно, средний" ;
+    :title "Изучаем Python" ;
+    :url "https://pythonworld.ru/knigi/izuchaem-python.html"^^xsd:anyURI ;
+    :writtenBy :МаркЛутц .
+
+:КейХорстманн a :Author,
+        owl:NamedIndividual .
+
+:ЛучаноРамальо a :Author,
+        owl:NamedIndividual .
+
+:МаркПрайс a :Author,
+        owl:NamedIndividual .
+
+:СебастьянРашка a :Author,
+        owl:NamedIndividual .
+
+:УрокиPython a :Article,
+        owl:NamedIndividual ;
+    :aboutLanguage :Python ;
+    :keywords "python, уроки, туториалы, русский" ;
+    :title "Уроки Python" ;
+    :url "https://pythonworld.ru/tutorials/"^^xsd:anyURI .
+
+:ФрансуаШолле a :Author,
+        owl:NamedIndividual .
+
+:AIML a :AIMachineLearning,
+        owl:NamedIndividual .
+
+:AIMachineLearning a owl:Class ;
+    rdfs:subClassOf :ApplicationDomain .
+
+:AddyOsmani a :Author,
+        owl:NamedIndividual .
+
+:AlSweigart a :Author,
+        owl:NamedIndividual .
+
+:AndrewStellman a :Author,
+        owl:NamedIndividual .
+
+:Angular a :Framework,
+        owl:NamedIndividual .
+
+:BenKlemens a :Author,
+        owl:NamedIndividual .
+
+:BrettSlatkin a :Author,
+        owl:NamedIndividual .
+
+:BrianGoetz a :Author,
+        owl:NamedIndividual .
+
+:BrianKernighanDennisRitchie a :Author,
+        owl:NamedIndividual .
+
+:BruceEckel a :Author,
+        owl:NamedIndividual .
+
+:CayHorstmann a :Author,
+        owl:NamedIndividual .
+
+:ContentCategory a owl:Class .
+
+:DanBader a :Author,
+        owl:NamedIndividual .
+
+:DataSci a :DataScience,
+        owl:NamedIndividual .
+
+:DataScience a owl:Class ;
+    rdfs:subClassOf :ApplicationDomain .
+
+:DavidBeazley a :Author,
+        owl:NamedIndividual .
+
+:DavidFlanagan a :Author,
+        owl:NamedIndividual .
+
+:DavidJEck a :Author,
+        owl:NamedIndividual .
+
+:Django a :Framework,
+        owl:NamedIndividual ;
+    :writtenIn :Python .
+
+:DotNet a :Framework,
+        owl:NamedIndividual .
+
+:EricMatthes a :Author,
+        owl:NamedIndividual .
+
+:EventDriven a :Paradigm,
+        owl:NamedIndividual .
+
+:Flask a :Framework,
+        owl:NamedIndividual ;
+    :writtenIn :Python .
+
+:FredSwartz a :Author,
+        owl:NamedIndividual .
+
+:GameDevelopment a owl:Class ;
+    rdfs:subClassOf :ApplicationDomain .
+
+:Generic a :Paradigm,
+        owl:NamedIndividual .
+
+:HerbertSchildt a :Author,
+        owl:NamedIndividual .
+
+:IlyaKantor a :Author,
+        owl:NamedIndividual .
+
+:JensGustedt a :Author,
+        owl:NamedIndividual .
+
+:JonSkeet a :Author,
+        owl:NamedIndividual .
+
+:JoshuaBloch a :Author,
+        owl:NamedIndividual .
+
+:KathySierra a :Author,
+        owl:NamedIndividual .
+
+:KyleSimpson a :Author,
+        owl:NamedIndividual .
+
+:LearnCPP a :Author,
+        owl:NamedIndividual .
+
+:LucianoRamalho a :Author,
+        owl:NamedIndividual .
+
+:MarkPilgrim a :Author,
+        owl:NamedIndividual .
+
+:Microsoft a :Author,
+        owl:NamedIndividual .
+
+:MobileDevelopment a owl:Class ;
+    rdfs:subClassOf :ApplicationDomain .
+
+:PetervanderLinden a :Author,
+        owl:NamedIndividual .
+
+:Platform a owl:Class .
+
+:PyTorch a :Framework,
+        owl:NamedIndividual ;
+    :writtenIn :Python .
+
+:React a :Framework,
+        owl:NamedIndividual .
+
+:RealPythonTeam a :Author,
+        owl:NamedIndividual .
+
+:ReginaldBraithwaite a :Author,
+        owl:NamedIndividual .
+
+:RobMiles a :Author,
+        owl:NamedIndividual .
+
+:ScottMeyers a :Author,
+        owl:NamedIndividual .
+
+:Spring a :Framework,
+        owl:NamedIndividual .
+
+:StanleyLippman a :Author,
+        owl:NamedIndividual .
+
+:SteveSummit a :Author,
+        owl:NamedIndividual .
+
+:SystemProgramming a owl:Class ;
+    rdfs:subClassOf :ApplicationDomain .
+
+:TensorFlow a :Framework,
+        owl:NamedIndividual ;
+    :writtenIn :Python .
+
+:Unity a :Framework,
+        owl:NamedIndividual .
+
+:UnrealEngine a :Framework,
+        owl:NamedIndividual .
+
+:Vue a :Framework,
+        owl:NamedIndividual .
+
+:WebDevelopment a owl:Class ;
+    rdfs:subClassOf :ApplicationDomain .
+
+:БарриБерд a :Author,
+        owl:NamedIndividual .
+
+:ГербертШилдт a :Author,
+        owl:NamedIndividual .
+
+:МаркЛутц a :Author,
+        owl:NamedIndividual .
+
+:СтефанРДэвис a :Author,
+        owl:NamedIndividual .
+
+:ЭлСвейгарт a :Author,
+        owl:NamedIndividual .
+
+:AllenBDowney a :Author,
+        owl:NamedIndividual .
+
+:AxelRauschmayer a :Author,
+        owl:NamedIndividual .
+
+:BjarneStroustrup a :Author,
+        owl:NamedIndividual .
+
+:DynamicTyping a :TypeSystem,
+        owl:NamedIndividual .
+
+:Functional a :Paradigm,
+        owl:NamedIndividual .
+
+:MarijnHaverbeke a :Author,
+        owl:NamedIndividual .
+
+:Metanit a :Author,
+        owl:NamedIndividual .
+
+:MobileDev a :MobileDevelopment,
+        owl:NamedIndividual .
+
+:Procedural a :Paradigm,
+        owl:NamedIndividual .
+
+:WeakTyping a :TypeSystem,
+        owl:NamedIndividual .
+
+:Structured a :Paradigm,
+        owl:NamedIndividual .
+
+:SystemProg a :SystemProgramming,
+        owl:NamedIndividual .
+
+:DifficultyLevel a owl:Class .
+
+:GameDev a :GameDevelopment,
+        owl:NamedIndividual .
+
+:Imperative a :Paradigm,
+        owl:NamedIndividual .
+
+:StaticTyping a :TypeSystem,
+        owl:NamedIndividual .
+
+:StrongTyping a :TypeSystem,
+        owl:NamedIndividual .
+
+:WebDev a :WebDevelopment,
+        owl:NamedIndividual .
+
+:ObjectOriented a :Paradigm,
+        owl:NamedIndividual .
+
+:TypeSystem a owl:Class .
+
+:ApplicationDomain a owl:Class .
+
+:Paradigm a owl:Class .
+
+:CPlusPlus a :ProgrammingLanguage,
+        owl:NamedIndividual ;
+    :creator "Bjarne Stroustrup" ;
+    :githubAvgStars 1.052825e+05 ;
+    :githubLastUpdated "2025-12-05T18:58:38.952804" ;
+    :githubRepositories 6245106 ;
+    :githubStars 1052825 ;
+    :hasFramework :UnrealEngine ;
+    :hasParadigm :Generic,
+        :ObjectOriented,
+        :Procedural ;
+    :hasTypeSystem :StaticTyping,
+        :StrongTyping ;
+    :latestVersion "C++23" ;
+    :learningCurve "High" ;
+    :stackOverflowLastUpdated "2025-12-05T18:58:50.216142" ;
+    :stackOverflowQuestions 818342 ;
+    :stackOverflowUsage "22.0%" ;
+    :tiobeRank 3 ;
+    :tiobeRating "8.03%" ;
+    :usedInDomain :GameDev,
+        :SystemProg ;
+    :yearCreated 1985 .
+
+:Framework a owl:Class .
+
+:CSharp a :ProgrammingLanguage,
+        owl:NamedIndividual ;
+    :creator 12.0,
+        "Microsoft" ;
+    :githubAvgStars 5.5327e+04 ;
+    :githubLastUpdated "2025-12-05T18:58:41.004835" ;
+    :githubRepositories 6876607 ;
+    :githubStars 553270 ;
+    :hasFramework :DotNet,
+        :Unity ;
+    :hasParadigm :Imperative,
+        :ObjectOriented,
+        :Structured ;
+    :hasTypeSystem :StaticTyping,
+        :StrongTyping ;
+    :learningCurve "Medium" ;
+    :stackOverflowLastUpdated "2025-12-05T18:58:51.970662" ;
+    :stackOverflowQuestions 1627609 ;
+    :stackOverflowUsage "28.0%" ;
+    :tiobeRank 5 ;
+    :tiobeRating "5.98%" ;
+    :usedInDomain :GameDev,
+        :WebDev ;
+    :yearCreated 2000 .
+
+:Publication a owl:Class .
+
+:ProgrammingLanguage a owl:Class .
+
+:Article a owl:Class ;
+    rdfs:subClassOf :Publication .
+
+:JavaScript a :ProgrammingLanguage,
+        owl:NamedIndividual ;
+    :creator "Brendan Eich" ;
+    :githubAvgStars 1.421074e+05 ;
+    :githubLastUpdated "2025-12-05T18:58:35.153720" ;
+    :githubRepositories 40660497 ;
+    :githubStars 1421074 ;
+    :hasFramework :Angular,
+        :React,
+        :Vue ;
+    :hasParadigm :EventDriven,
+        :Functional,
+        :ObjectOriented ;
+    :hasTypeSystem :DynamicTyping,
+        :WeakTyping ;
+    :latestVersion "ES2023" ;
+    :learningCurve "Medium" ;
+    :stackOverflowLastUpdated "2025-12-05T18:58:46.521699" ;
+    :stackOverflowQuestions 2534258 ;
+    :stackOverflowUsage "65.0%" ;
+    :tiobeRank 6 ;
+    :tiobeRating "3.11%" ;
+    :usedInDomain :MobileDev,
+        :WebDev ;
+    :yearCreated 1995 .
+
+:C a :ProgrammingLanguage,
+        owl:NamedIndividual ;
+    :creator "Dennis Ritchie" ;
+    :githubAvgStars 8.24912e+04 ;
+    :githubLastUpdated "2025-12-05T18:58:36.947499" ;
+    :githubRepositories 3828597 ;
+    :githubStars 824912 ;
+    :hasParadigm :Imperative,
+        :Procedural,
+        :Structured ;
+    :hasTypeSystem :StaticTyping,
+        :WeakTyping ;
+    :latestVersion "C17" ;
+    :learningCurve "Hihg" ;
+    :stackOverflowLastUpdated "2025-12-05T18:58:48.372556" ;
+    :stackOverflowQuestions 409858 ;
+    :stackOverflowUsage "15.0%" ;
+    :tiobeRank 11 ;
+    :tiobeRating "1.48%" ;
+    :usedInDomain :GameDev,
+        :SystemProg ;
+    :yearCreated 1972 .
+
+:Documentation a owl:Class ;
+    rdfs:subClassOf :Publication .
+
+:Tutorial a owl:Class ;
+    rdfs:subClassOf :Publication .
+
+:Java a :ProgrammingLanguage,
+        owl:NamedIndividual ;
+    :creator "James Gosling" ;
+    :githubAvgStars 9.2722e+04 ;
+    :githubLastUpdated "2025-12-05T18:58:33.317396" ;
+    :githubRepositories 19752001 ;
+    :githubStars 927220 ;
+    :hasFramework :Spring ;
+    :hasParadigm :Imperative,
+        :ObjectOriented,
+        :Structured ;
+    :hasTypeSystem :StaticTyping,
+        :StrongTyping ;
+    :latestVersion 21 ;
+    :learningCurve "Medium" ;
+    :stackOverflowLastUpdated "2025-12-05T18:58:44.676858" ;
+    :stackOverflowQuestions 1923498 ;
+    :stackOverflowUsage "35.0%" ;
+    :tiobeRank 4 ;
+    :tiobeRating "7.79%" ;
+    :usedInDomain :GameDev,
+        :MobileDev,
+        :SystemProg,
+        :WebDev ;
+    :yearCreated 1995 .
+
+:Book a owl:Class ;
+    rdfs:subClassOf :Publication .
+
+:Author a owl:Class .
+
+:Python a :ProgrammingLanguage,
+        owl:NamedIndividual ;
+    :creator "Guido van Rossum" ;
+    :githubAvgStars 2.348022e+05 ;
+    :githubLastUpdated "2025-12-05T18:58:31.264828" ;
+    :githubRepositories 24714791 ;
+    :githubStars 2348022 ;
+    :hasFramework :Django,
+        :Flask,
+        :PyTorch,
+        :TensorFlow ;
+    :hasParadigm :Functional,
+        :Imperative,
+        :ObjectOriented ;
+    :hasTypeSystem :DynamicTyping,
+        :StrongTyping ;
+    :latestVersion 3.12 ;
+    :learningCurve "Low" ;
+    :stackOverflowLastUpdated "2025-12-05T18:58:42.819314" ;
+    :stackOverflowQuestions 2222573 ;
+    :stackOverflowUsage "48.0%" ;
+    :tiobeRank 1 ;
+    :tiobeRating "20.97%" ;
+    :usedInDomain :AIML,
+        :DataSci,
+        :WebDev ;
+    :yearCreated 1991 .
+

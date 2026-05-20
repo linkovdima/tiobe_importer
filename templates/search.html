@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск по онтологии - Языки Программирования</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .search-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        .result-card {
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .result-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .relevance-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .language-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 3px;
+            background: #007bff;
+            color: white;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+        .filter-tags {
+            margin-top: 10px;
+        }
+        .filter-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            margin: 5px 5px 5px 0;
+            background: #e9ecef;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .filter-tag.active {
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-code"></i> Языки Программирования
+            </a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Главная</a>
+                <a class="nav-link" href="/dashboard">Дашборд</a>
+                <a class="nav-link" href="/languages">Языки</a>
+                <a class="nav-link active" href="/search">Поиск</a>
+                <a class="nav-link" href="/cabinet" title="Личный кабинет">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Поисковая секция -->
+    <div class="search-container">
+        <div class="container">
+            <h1 class="display-4 mb-4">
+                <i class="fas fa-search"></i> Поиск по онтологии
+            </h1>
+            <p class="lead">Ищите информацию о языках программирования, публикациях, фреймворках и многом другом</p>
+            
+            <div class="row mt-4">
+                <div class="col-md-8 mx-auto">
+                    <form id="searchForm">
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control" id="keywordsInput" 
+                                   placeholder="Введите ключевые слова (например: web development, object oriented, beginner)">
+                            <button class="btn btn-light" type="submit">
+                                <i class="fas fa-search"></i> Найти
+                            </button>
+                        </div>
+                    </form>
+                    <script>
+                        // Поддержка GET параметра q
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const q = urlParams.get('q');
+                        if (q) {
+                            document.getElementById('keywordsInput').value = q;
+                            setTimeout(() => {
+                                performSearch(q, 1);
+                            }, 500);
+                        }
+                    </script>
+                </div>
+            </div>
+            
+            <!-- Фильтр по языкам -->
+            <div class="row mt-4">
+                <div class="col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Фильтр по языкам:</h6>
+                            <div class="filter-tags" id="languageFilters">
+                                <span class="filter-tag active" data-lang="">Все языки</span>
+                                <!-- Языки загрузятся через JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Дополнительные фильтры -->
+            <div class="row mt-4">
+                <div class="col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Расширенный поиск</h6>
+                            <div class="row g-2 align-items-end">
+                                <div class="col-md-4">
+                                    <label class="form-label small text-muted">Тип источника</label>
+                                    <select class="form-select form-select-sm" id="sourceTypeSelect">
+                                        <option value="">Любой</option>
+                                        <option value="Book">Книга</option>
+                                        <option value="Article">Статья</option>
+                                        <option value="Documentation">Документация</option>
+                                        <option value="Tutorial">Туториал</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small text-muted">Язык материала</label>
+                                    <select class="form-select form-select-sm" id="sourceLanguageSelect">
+                                        <option value="">Любой</option>
+                                        <option value="русский">Русский</option>
+                                        <option value="английский">Английский</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small text-muted">Сложность</label>
+                                    <select class="form-select form-select-sm" id="difficultySelect">
+                                        <option value="">Любая</option>
+                                        <option value="начальный">Начальный</option>
+                                        <option value="средний">Средний</option>
+                                        <option value="продвинутый">Продвинутый</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label small text-muted">Год</label>
+                                    <input class="form-control form-control-sm" id="yearInput" type="number" placeholder="Напр. 2015">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label small text-muted">Сортировка</label>
+                                    <select class="form-select form-select-sm" id="sortBySelect">
+                                        <option value="relevance">По релевантности</option>
+                                        <option value="date">По дате</option>
+                                        <option value="popularity">По популярности</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label small text-muted">Результатов на страницу</label>
+                                    <select class="form-select form-select-sm" id="perPageSelect">
+                                        <option value="10">10</option>
+                                        <option value="20" selected>20</option>
+                                        <option value="50">50</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 d-grid">
+                                    <button class="btn btn-outline-primary btn-sm mt-4" type="button" id="applyFiltersBtn">
+                                        Применить
+                                    </button>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check mt-2">
+                                        <input class="form-check-input" type="checkbox" id="includeExternalAlwaysCheckbox">
+                                        <label class="form-check-label small text-muted" for="includeExternalAlwaysCheckbox">
+                                            Показывать внешние источники
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Сохранение в кабинет -->
+    <div class="row mt-4">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <div>
+                            <h6 class="card-title mb-0">Сохранение в кабинет</h6>
+                            <div class="text-muted small">Выберите папку для кнопок «Сохранить»</div>
+                        </div>
+                        <select class="form-select form-select-sm" id="saveFolderSelect" style="max-width: 320px;">
+                            <option value="">Загрузить папки...</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Результаты поиска -->
+    <div class="container">
+        <div id="searchResults">
+            <div class="text-center text-muted py-5">
+                <i class="fas fa-search fa-3x mb-3"></i>
+                <p>Введите ключевые слова для поиска</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно сохранения факта -->
+    <div class="modal fade" id="saveFactModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Сохранить факт в онтологию</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="factSourceName">
+                    <input type="hidden" id="factTitle">
+                    <div class="mb-2 small text-muted" id="factSourcePreview"></div>
+                    <div class="mb-3">
+                        <label class="form-label">Фактический URL источника</label>
+                        <input type="url" class="form-control" id="factSourceUrlInput" placeholder="Вставь URL страницы, которую открыл в браузере">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Язык</label>
+                        <input type="text" class="form-control" id="factLanguageInput" placeholder="Например: Python">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Тип материала</label>
+                        <select class="form-select" id="factMaterialTypeSelect">
+                            <option value="Article">Статья</option>
+                            <option value="Documentation">Документация</option>
+                            <option value="Guide">Гайд</option>
+                            <option value="Tutorial">Туториал</option>
+                            <option value="Book">Книга</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Текст факта</label>
+                        <textarea class="form-control" id="factTextInput" rows="6" placeholder="Вставь сюда найденный фрагмент текста или свой конспект"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-success" id="saveFactConfirmBtn">Сохранить в онтологию</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let selectedLanguages = [];
+        let allLanguages = [];
+        let currentKeywords = '';
+        let saveFactModal = null;
+
+        async function loadSaveFolderSelect() {
+            const select = document.getElementById('saveFolderSelect');
+            if (!select) return;
+
+            select.disabled = true;
+            select.innerHTML = '<option value="">Войдите, чтобы сохранять</option>';
+
+            try {
+                const sessionRes = await fetch('/api/me/session');
+                const sessionData = await sessionRes.json();
+                if (!sessionData.logged_in) return;
+
+                const foldersRes = await fetch('/api/me/folders');
+                const foldersData = await foldersRes.json();
+                if (!foldersData.success) return;
+
+                const folders = foldersData.folders || [];
+                if (folders.length === 0) return;
+
+                select.innerHTML = '';
+                folders.forEach(f => {
+                    const opt = document.createElement('option');
+                    opt.value = f.id;
+                    opt.textContent = f.name;
+                    select.appendChild(opt);
+                });
+
+                const favorite = folders.find(f => f.name === 'Избранное') || folders[0];
+                select.value = favorite.id;
+                select.disabled = false;
+            } catch (e) {
+                // ignore
+            }
+        }
+
+        loadSaveFolderSelect();
+        saveFactModal = new bootstrap.Modal(document.getElementById('saveFactModal'));
+
+        // Загрузка списка языков
+        fetch('/api/search/languages')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success && data.languages) {
+                    allLanguages = data.languages;
+                    renderLanguageFilters();
+                } else {
+                    console.error('Ошибка загрузки языков:', data);
+                    // Fallback на статический список
+                    loadFallbackLanguages();
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка при загрузке языков:', error);
+                // Fallback на статический список
+                loadFallbackLanguages();
+            });
+        
+        function loadFallbackLanguages() {
+            // Статический список языков как fallback
+            allLanguages = ['Python', 'Java', 'JavaScript', 'C', 'CPlusPlus', 'CSharp'];
+            renderLanguageFilters();
+            console.log('Использован fallback список языков');
+        }
+
+        function renderLanguageFilters() {
+            const container = document.getElementById('languageFilters');
+            container.innerHTML = '<span class="filter-tag active" data-lang="">Все языки</span>';
+            
+            allLanguages.forEach(lang => {
+                const tag = document.createElement('span');
+                tag.className = 'filter-tag';
+                tag.textContent = lang;
+                tag.dataset.lang = lang;
+                tag.onclick = () => toggleLanguageFilter(lang);
+                container.appendChild(tag);
+            });
+        }
+
+        function toggleLanguageFilter(lang) {
+            const tag = document.querySelector(`[data-lang="${lang}"]`);
+            
+            if (lang === '') {
+                // "Все языки" выбрано
+                selectedLanguages = [];
+                document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+            } else {
+                // Переключаем конкретный язык
+                if (selectedLanguages.includes(lang)) {
+                    selectedLanguages = selectedLanguages.filter(l => l !== lang);
+                    tag.classList.remove('active');
+                    
+                    // Если ничего не выбрано, выбираем "Все языки"
+                    if (selectedLanguages.length === 0) {
+                        document.querySelector('[data-lang=""]').classList.add('active');
+                    }
+                } else {
+                    selectedLanguages.push(lang);
+                    tag.classList.add('active');
+                    document.querySelector('[data-lang=""]').classList.remove('active');
+                }
+            }
+            
+            // Если форма уже заполнена, выполняем поиск
+            const keywords = document.getElementById('keywordsInput').value.trim();
+            if (keywords) {
+                performSearch(keywords, 1);
+            }
+        }
+
+        // Обработка формы поиска
+        document.getElementById('searchForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const keywords = document.getElementById('keywordsInput').value.trim();
+            if (keywords) {
+                performSearch(keywords, 1);
+            }
+        });
+
+        document.getElementById('applyFiltersBtn').addEventListener('click', () => {
+            const keywords = document.getElementById('keywordsInput').value.trim();
+            if (keywords) {
+                performSearch(keywords, 1);
+            }
+        });
+
+        function performSearch(keywords, page = 1) {
+            const resultsContainer = document.getElementById('searchResults');
+            currentKeywords = keywords;
+            const source_type = document.getElementById('sourceTypeSelect').value || null;
+            const source_language = document.getElementById('sourceLanguageSelect').value || null;
+            const difficulty = document.getElementById('difficultySelect').value || null;
+            const include_external_always = document.getElementById('includeExternalAlwaysCheckbox').checked;
+            const year = document.getElementById('yearInput').value || null;
+            const sort_by = document.getElementById('sortBySelect').value || 'relevance';
+            const per_page = parseInt(document.getElementById('perPageSelect').value || '20', 10);
+            resultsContainer.innerHTML = '<div class="text-center py-5"><div class="spinner-border" role="status"></div><p class="mt-3">Поиск...</p></div>';
+            
+            const languages = selectedLanguages.length > 0 ? selectedLanguages : null;
+            
+            fetch('/api/search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    keywords: keywords,
+                    languages: languages,
+                    source_type: source_type,
+                    source_language: source_language,
+                    difficulty: difficulty,
+                    include_external_always: include_external_always,
+                    year: year,
+                    sort_by: sort_by,
+                    page: page,
+                    per_page: per_page
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    renderResults(data);
+                } else {
+                    const errorMsg = data.error || 'Неизвестная ошибка';
+                    resultsContainer.innerHTML = `<div class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> Ошибка: ${errorMsg}</div>`;
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка поиска:', error);
+                resultsContainer.innerHTML = `<div class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> Ошибка подключения: ${error.message}. Проверьте, что сервер запущен.</div>`;
+            });
+        }
+
+        function renderResults(data) {
+            const container = document.getElementById('searchResults');
+            
+            if (data.total_results === 0) {
+                container.innerHTML = `
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> По запросу "${data.keywords}" ничего не найдено
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = `
+                <div class="mb-4">
+                    <h4>Найдено результатов: ${data.total_results}</h4>
+                    <p class="text-muted">Запрос: "${data.keywords}"</p>
+                    ${data.languages_filter ? `<p class="text-muted">Фильтр: ${data.languages_filter.join(', ')}</p>` : ''}
+                    ${data.include_external_always ? `<p class="mb-1"><span class="badge bg-info text-dark">Режим: онтология + внешние источники</span></p>` : ''}
+                    ${data.fallback_used ? `<div class="alert alert-warning py-2"><i class="fas fa-link"></i> В онтологии не найдено точных совпадений. Показаны внешние источники.</div>` : ''}
+                    ${data.avg_quality_score ? `<p class="text-muted mb-0">Средняя оценка точности ответа: <strong>${data.avg_quality_score}%</strong></p>` : ''}
+                </div>
+            `;
+            
+            data.results.forEach(result => {
+                html += renderResultCard(result);
+            });
+
+            html += renderPagination(data.page, data.total_pages);
+            
+            container.innerHTML = html;
+        }
+
+        function renderPagination(page, totalPages) {
+            page = parseInt(page || 1, 10);
+            totalPages = parseInt(totalPages || 1, 10);
+            if (totalPages <= 1) return '';
+
+            const prevDisabled = page <= 1 ? 'disabled' : '';
+            const nextDisabled = page >= totalPages ? 'disabled' : '';
+
+            return `
+                <div class="mt-4">
+                    <div class="d-flex justify-content-center">
+                        <nav aria-label="Пагинация">
+                            <ul class="pagination">
+                                <li class="page-item ${prevDisabled}">
+                                    <a class="page-link" href="#" onclick="window.__goToPage(${page - 1}); return false;">Предыдущая</a>
+                                </li>
+                                <li class="page-item disabled">
+                                    <span class="page-link">Страница ${page} из ${totalPages}</span>
+                                </li>
+                                <li class="page-item ${nextDisabled}">
+                                    <a class="page-link" href="#" onclick="window.__goToPage(${page + 1}); return false;">Следующая</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            `;
+        }
+
+        window.__goToPage = function(targetPage) {
+            targetPage = parseInt(targetPage || 1, 10);
+            if (!currentKeywords) return;
+            if (targetPage < 1) return;
+            performSearch(currentKeywords, targetPage);
+        }
+
+        function escapeAttr(text) {
+            return String(text ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+
+        async function saveResultToCabinet(payload) {
+            const sessionRes = await fetch('/api/me/session');
+            const sessionData = await sessionRes.json();
+            if (!sessionData.logged_in) {
+                window.location.href = '/login';
+                return;
+            }
+
+            const foldersRes = await fetch('/api/me/folders');
+            const foldersData = await foldersRes.json();
+            if (!foldersData.success) {
+                alert(foldersData.error || 'Не удалось загрузить папки');
+                return;
+            }
+
+            const folders = foldersData.folders || [];
+            const select = document.getElementById('saveFolderSelect');
+            let chosenFolderId = null;
+            if (select && select.value) {
+                chosenFolderId = parseInt(select.value, 10);
+            }
+
+            const favorite = folders.find(f => f.name === 'Избранное');
+            const chosenFolder = chosenFolderId ? folders.find(f => f.id === chosenFolderId) : (favorite || folders[0]);
+            if (!chosenFolder) {
+                alert('Нет доступных папок в кабинете');
+                return;
+            }
+
+            const requestPayload = {
+                folder_id: chosenFolder.id,
+                ...payload
+            };
+
+            const saveRes = await fetch('/api/me/saved', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(requestPayload)
+            });
+            const saveData = await saveRes.json();
+            if (saveData.success) {
+                alert('Ресурс сохранен в кабинет');
+            } else {
+                alert(saveData.error || 'Не удалось сохранить ресурс');
+            }
+        }
+
+        document.getElementById('searchResults').addEventListener('click', async (e) => {
+            const saveFactBtn = e.target.closest('.save-fact-btn');
+            if (saveFactBtn) {
+                document.getElementById('factSourceUrlInput').value = saveFactBtn.dataset.url || '';
+                document.getElementById('factSourceName').value = saveFactBtn.dataset.sourceName || 'Browser Search';
+                document.getElementById('factTitle').value = saveFactBtn.dataset.title || 'Сохраненный факт';
+                document.getElementById('factLanguageInput').value = saveFactBtn.dataset.language || '';
+                document.getElementById('factTextInput').value = '';
+                document.getElementById('factMaterialTypeSelect').value = 'Article';
+                document.getElementById('factSourcePreview').textContent = `Источник: ${saveFactBtn.dataset.url || ''}`;
+                saveFactModal.show();
+                return;
+            }
+
+            const saveBrowserBtn = e.target.closest('.save-browser-btn');
+            if (saveBrowserBtn) {
+                await saveResultToCabinet({
+                    resource_uri: saveBrowserBtn.dataset.resourceUri || saveBrowserBtn.dataset.url || '',
+                    resource_type: saveBrowserBtn.dataset.resourceType || 'external_source',
+                    publication_type: saveBrowserBtn.dataset.publicationType || 'ExternalSource',
+                    title: saveBrowserBtn.dataset.title || '',
+                    author: saveBrowserBtn.dataset.author || '',
+                    url: saveBrowserBtn.dataset.url || '',
+                    keywords: saveBrowserBtn.dataset.keywords || ''
+                });
+                return;
+            }
+
+            const btn = e.target.closest('.save-btn');
+            if (!btn) return;
+
+            await saveResultToCabinet({
+                resource_uri: btn.dataset.resourceUri,
+                resource_type: 'publication',
+                publication_type: btn.dataset.publicationType,
+                title: btn.dataset.title,
+                author: btn.dataset.author,
+                url: btn.dataset.url,
+                keywords: btn.dataset.keywords
+            });
+        });
+
+        document.getElementById('saveFactConfirmBtn').addEventListener('click', async () => {
+            const payload = {
+                query_text: currentKeywords || '',
+                language: document.getElementById('factLanguageInput').value.trim(),
+                material_type: document.getElementById('factMaterialTypeSelect').value,
+                fact_text: document.getElementById('factTextInput').value.trim(),
+                source_url: document.getElementById('factSourceUrlInput').value.trim(),
+                source_name: document.getElementById('factSourceName').value || 'Browser Search',
+                title: document.getElementById('factTitle').value || 'Сохраненный факт'
+            };
+
+            if (!payload.fact_text) {
+                alert('Добавь текст факта перед сохранением');
+                return;
+            }
+            if (!payload.source_url) {
+                alert('Не определен URL источника');
+                return;
+            }
+
+            const res = await fetch('/api/search/save_fact', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (data.success) {
+                alert('Информация сохранена в онтологию');
+                saveFactModal.hide();
+            } else {
+                alert(data.error || 'Не удалось сохранить факт');
+            }
+        });
+
+        function renderResultCard(result) {
+            let cardClass = '';
+            let icon = '';
+            let title = '';
+            let content = '';
+            
+            if (result.type === 'language') {
+                cardClass = 'border-primary';
+                icon = '<i class="fas fa-code text-primary"></i>';
+                title = `<h5 class="card-title">${result.display_name || result.name}</h5>`;
+                
+                const props = result.properties || {};
+                const data = result.data || {};
+                
+                content = `
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Создатель:</strong> ${props.creator || 'N/A'}</p>
+                            <p><strong>Кривая обучения:</strong> ${props.learningCurve || 'N/A'}</p>
+                            ${data.tiobeRank ? `<p><strong>TIOBE Рейтинг:</strong> #${data.tiobeRank} (${data.tiobeRating || 'N/A'})</p>` : ''}
+                            ${data.githubRepositories ? `<p><strong>GitHub:</strong> ${(data.githubRepositories / 1000000).toFixed(1)}M репозиториев</p>` : ''}
+                            ${data.stackOverflowQuestions ? `<p><strong>Stack Overflow:</strong> ${(data.stackOverflowQuestions / 1000).toFixed(0)}k вопросов</p>` : ''}
+                        </div>
+                        <div class="col-md-6">
+                            ${props.paradigm ? `<p><strong>Парадигмы:</strong> ${Array.isArray(props.paradigm) ? props.paradigm.join(', ') : props.paradigm}</p>` : ''}
+                            ${props.domain ? `<p><strong>Домены:</strong> ${Array.isArray(props.domain) ? props.domain.join(', ') : props.domain}</p>` : ''}
+                            ${props.framework ? `<p><strong>Фреймворки:</strong> ${Array.isArray(props.framework) ? props.framework.join(', ') : props.framework}</p>` : ''}
+                            ${props.typeSystem ? `<p><strong>Система типов:</strong> ${Array.isArray(props.typeSystem) ? props.typeSystem.join(', ') : props.typeSystem}</p>` : ''}
+                        </div>
+                    </div>
+                    ${result.frameworks && result.frameworks.length > 0 ? `
+                        <div class="mt-3">
+                            <strong>Фреймворки:</strong>
+                            ${result.frameworks.map(f => `<span class="language-badge">${f}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                `;
+            } else if (result.type === 'publication') {
+                cardClass = 'border-success';
+                
+                // Определяем тип публикации и иконку
+                let pubType = 'Публикация';
+                let typeIcon = '<i class="fas fa-file-alt text-success"></i>';
+                if (result.publication_type === 'Book') {
+                    pubType = 'Книга';
+                    typeIcon = '<i class="fas fa-book text-success"></i>';
+                } else if (result.publication_type === 'Documentation') {
+                    pubType = 'Документация';
+                    typeIcon = '<i class="fas fa-book-open text-info"></i>';
+                } else if (result.publication_type === 'Tutorial') {
+                    pubType = 'Туториал';
+                    typeIcon = '<i class="fas fa-graduation-cap text-warning"></i>';
+                } else if (result.publication_type === 'Article') {
+                    pubType = 'Статья';
+                    typeIcon = '<i class="fas fa-newspaper text-primary"></i>';
+                }
+                
+                icon = typeIcon;
+                title = `<h5 class="card-title">${result.title || result.name}</h5>`;
+                
+                const hasUrl = result.url && result.url.trim() !== '';
+                
+                content = `
+                    <p><strong>Тип:</strong> ${pubType}</p>
+                    ${result.keywords ? `<p><strong>Ключевые слова:</strong> ${result.keywords}</p>` : ''}
+                    ${result.language ? `<p><strong>О языке:</strong> ${result.language}</p>` : ''}
+                    ${result.author ? `<p><strong>Автор:</strong> ${result.author}</p>` : ''}
+                    ${hasUrl ? `
+                    <div class="mt-3">
+                        <a href="${result.url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Открыть источник
+                        </a>
+                        ${result.language ? `
+                        <a href="/language/${result.language}/sources" class="btn btn-sm btn-outline-secondary ms-2">
+                            <i class="fas fa-list"></i> Все источники ${result.language}
+                        </a>
+                        ` : ''}
+                        <button class="btn btn-sm btn-outline-success ms-2 save-btn" type="button"
+                                data-resource-uri="${escapeAttr(result.uri || '')}"
+                                data-publication-type="${escapeAttr(result.publication_type || '')}"
+                                data-title="${escapeAttr(result.title || '')}"
+                                data-author="${escapeAttr(result.author || '')}"
+                                data-url="${escapeAttr(result.url || '')}"
+                                data-keywords="${escapeAttr(result.keywords || '')}">
+                            <i class="fas fa-bookmark"></i> Сохранить
+                        </button>
+                    </div>
+                    ` : result.language ? `
+                    <div class="mt-3">
+                        <a href="/language/${result.language}/sources" class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-list"></i> Все источники ${result.language}
+                        </a>
+                        <button class="btn btn-sm btn-outline-success ms-2 save-btn" type="button"
+                                data-resource-uri="${escapeAttr(result.uri || '')}"
+                                data-publication-type="${escapeAttr(result.publication_type || '')}"
+                                data-title="${escapeAttr(result.title || '')}"
+                                data-author="${escapeAttr(result.author || '')}"
+                                data-url="${escapeAttr(result.url || '')}"
+                                data-keywords="${escapeAttr(result.keywords || '')}">
+                            <i class="fas fa-bookmark"></i> Сохранить
+                        </button>
+                    </div>
+                    ` : ''}
+                `;
+            } else if (result.type === 'framework') {
+                cardClass = 'border-warning';
+                icon = '<i class="fas fa-cube text-warning"></i>';
+                title = `<h5 class="card-title">${result.name}</h5>`;
+                
+                content = `
+                    <p><strong>Тип:</strong> Фреймворк</p>
+                    ${result.language ? `<p><strong>Язык:</strong> ${result.language}</p>` : ''}
+                `;
+            } else if (result.type === 'external_source') {
+                cardClass = 'border-danger';
+                icon = '<i class="fas fa-globe text-danger"></i>';
+                title = `<h5 class="card-title">${result.title || 'Внешний источник'}</h5>`;
+
+                content = `
+                    <p><strong>Источник:</strong> ${result.source_name || 'Web'}</p>
+                    ${result.language ? `<p><strong>Язык:</strong> ${result.language}</p>` : ''}
+                    <div class="mt-3">
+                        <a href="${result.url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-danger">
+                            <i class="fas fa-external-link-alt"></i> Открыть источник
+                        </a>
+                        <button class="btn btn-sm btn-outline-success ms-2 save-browser-btn" type="button"
+                                data-resource-uri="${escapeAttr(result.uri || result.url || '')}"
+                                data-resource-type="external_source"
+                                data-publication-type="ExternalSource"
+                                data-title="${escapeAttr(result.title || '')}"
+                                data-author="${escapeAttr(result.source_name || '')}"
+                                data-url="${escapeAttr(result.url || '')}"
+                                data-keywords="${escapeAttr(result.keywords || '')}">
+                            <i class="fas fa-folder-plus"></i> Сохранить
+                        </button>
+                        <button class="btn btn-sm btn-outline-primary ms-2 save-fact-btn" type="button"
+                                data-title="${escapeAttr(result.title || '')}"
+                                data-url="${escapeAttr(result.url || '')}"
+                                data-source-name="${escapeAttr(result.source_name || 'Browser Search')}"
+                                data-language="${escapeAttr(result.language || '')}">
+                            <i class="fas fa-lightbulb"></i> Сохранить в онтологию
+                        </button>
+                    </div>
+                `;
+            } else if (result.type === 'knowledge_fact') {
+                cardClass = 'border-info';
+                icon = '<i class="fas fa-lightbulb text-info"></i>';
+                title = `<h5 class="card-title">${result.title || 'Факт знаний'}</h5>`;
+                content = `
+                    <p><strong>Тип материала:</strong> ${result.material_type || 'Article'}</p>
+                    <p><strong>Предикат:</strong> ${result.predicate_type || 'hasExplanation'}</p>
+                    ${result.language ? `<p><strong>Язык:</strong> ${result.language}</p>` : ''}
+                    ${result.fact_text ? `<p><strong>Факт:</strong> ${result.fact_text}</p>` : ''}
+                    <div class="mt-3">
+                    ${result.url ? `<a href="${result.url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-info"><i class="fas fa-external-link-alt"></i> Источник</a>` : ''}
+                    <button class="btn btn-sm btn-outline-success ms-2 save-browser-btn" type="button"
+                            data-resource-uri="${escapeAttr(result.uri || result.url || '')}"
+                            data-resource-type="knowledge_fact"
+                            data-publication-type="${escapeAttr(result.material_type || 'KnowledgeFact')}"
+                            data-title="${escapeAttr(result.title || 'Факт знаний')}"
+                            data-author="${escapeAttr(result.source_name || '')}"
+                            data-url="${escapeAttr(result.url || '')}"
+                            data-keywords="${escapeAttr(result.keywords || '')}">
+                        <i class="fas fa-folder-plus"></i> Сохранить
+                    </button>
+                    </div>
+                `;
+            }
+            const quality = result.quality || {};
+            
+            return `
+                <div class="card result-card ${cardClass} position-relative">
+                    <div class="card-body">
+                        <span class="badge bg-secondary relevance-badge">Релевантность: ${result.relevance?.toFixed(1) || 0}%</span>
+                        ${icon}
+                        ${title}
+                        ${content}
+                        ${quality.total_score ? `
+                        <div class="mt-3 small text-muted">
+                            Точность: сущности ${quality.entity_accuracy || 0}%,
+                            предикаты ${quality.predicate_accuracy || 0}%,
+                            ответ ${quality.answer_exactness || 0}%,
+                            итог ${quality.total_score || 0}%
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

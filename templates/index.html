@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Languages Ontology Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --border-color: #e2e8f0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-light);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+            background: white;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .language-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: all 0.2s;
+            background: white;
+        }
+        
+        .language-card:hover {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .nav-link:hover {
+            color: white;
+        }
+        
+        .navbar {
+            background-color: #1e293b !important;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #1e40af;
+            border-color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-code"></i> Языки Программирования
+            </a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Главная</a>
+                <a class="nav-link" href="/dashboard">Дашборд</a>
+                <a class="nav-link" href="/languages">Языки</a>
+                <a class="nav-link" href="/search">Поиск</a>
+                <a class="nav-link" href="/cabinet" title="Личный кабинет">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция -->
+    <div class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">База знаний языков программирования</h1>
+            <p class="lead">Комплексная информация о языках программирования: рейтинги, книги, документация, туториалы и многое другое</p>
+            
+            <!-- Поисковая строка -->
+            <div class="row mt-4">
+                <div class="col-md-8 mx-auto">
+                    <form action="/search" method="GET" id="mainSearchForm">
+                        <div class="input-group input-group-lg shadow-lg">
+                            <input type="text" class="form-control" name="q" id="mainSearchInput" 
+                                   placeholder="Поиск по языкам, книгам, документации... (например: Python, Fluent Python, документация)"
+                                   style="border-radius: 50px 0 0 50px; border: none; padding: 15px 25px;">
+                            <button class="btn btn-light" type="submit" 
+                                    style="border-radius: 0 50px 50px 0; border: none; padding: 15px 30px;">
+                                <i class="fas fa-search"></i> Найти
+                            </button>
+                        </div>
+                    </form>
+                    <p class="mt-3 mb-0">
+                        <small>Попробуйте: "Python", "книга", "документация", "русский"</small>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <a href="/dashboard" class="btn btn-light btn-lg me-2">
+                    <i class="fas fa-chart-bar"></i> Аналитика
+                </a>
+                <a href="/languages" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-list"></i> Все языки
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Статистика -->
+    <div class="container">
+        <div class="row" id="stats-container">
+            <!-- Статистика загрузится через JavaScript -->
+        </div>
+
+    </div>
+
+    <!-- Результаты поиска (если есть запрос) -->
+    <div class="container mt-4" id="search-results-section" style="display: none;">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-search"></i> Результаты поиска</h5>
+            </div>
+            <div class="card-body" id="search-results">
+                <!-- Результаты загрузятся через JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Загрузка статистики
+        fetch('/api/stats')
+            .then(response => response.json())
+            .then(data => {
+                const statsContainer = document.getElementById('stats-container');
+                statsContainer.innerHTML = `
+                    <div class="col-md-3 mb-3">
+                        <div class="card stat-card">
+                            <div class="card-body text-center">
+                                <h3 class="text-primary">${data.total_languages}</h3>
+                                <p class="text-muted">Всего языков</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card stat-card">
+                            <div class="card-body text-center">
+                                <h3 class="text-success">${data.languages_with_tiobe}</h3>
+                                <p class="text-muted">TIOBE данные</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card stat-card">
+                            <div class="card-body text-center">
+                                <h3 class="text-info">${data.languages_with_github}</h3>
+                                <p class="text-muted">GitHub данные</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card stat-card">
+                            <div class="card-body text-center">
+                                <h3 class="text-warning">${data.languages_with_stackoverflow}</h3>
+                                <p class="text-muted">Stack Overflow</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        
+        // Обработка поиска на главной странице
+        document.getElementById('mainSearchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = document.getElementById('mainSearchInput').value.trim();
+            if (query) {
+                performSearchOnMainPage(query);
+            }
+        });
+        
+        // Проверка GET параметра q
+        const urlParams = new URLSearchParams(window.location.search);
+        const q = urlParams.get('q');
+        if (q) {
+            document.getElementById('mainSearchInput').value = q;
+            performSearchOnMainPage(q);
+        }
+        
+        function performSearchOnMainPage(keywords) {
+            const resultsSection = document.getElementById('search-results-section');
+            const resultsContainer = document.getElementById('search-results');
+            
+            resultsSection.style.display = 'block';
+            resultsContainer.innerHTML = '<div class="text-center py-3"><div class="spinner-border spinner-border-sm" role="status"></div><p class="mt-2">Поиск...</p></div>';
+            
+            // Прокрутка к результатам
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            fetch('/api/search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    keywords: keywords,
+                    languages: null
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.total_results > 0) {
+                    renderSearchResults(data, resultsContainer);
+                } else {
+                    resultsContainer.innerHTML = `
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> По запросу "${keywords}" ничего не найдено.
+                            <a href="/search?q=${encodeURIComponent(keywords)}" class="alert-link">Попробовать расширенный поиск</a>
+                        </div>
+                    `;
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка поиска:', error);
+                resultsContainer.innerHTML = `
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-triangle"></i> Ошибка поиска: ${error.message}
+                    </div>
+                `;
+            });
+        }
+        
+        function renderSearchResults(data, container) {
+            let html = `
+                <div class="mb-3">
+                    <h6>Найдено результатов: ${data.total_results}</h6>
+                    <p class="text-muted small">Запрос: "${data.keywords}"</p>
+                    <a href="/search?q=${encodeURIComponent(data.keywords)}" class="btn btn-sm btn-outline-primary">
+                        <i class="fas fa-external-link-alt"></i> Расширенный поиск
+                    </a>
+                </div>
+                <div class="row">
+            `;
+            
+            // Показываем первые 6 результатов
+            data.results.slice(0, 6).forEach(result => {
+                html += renderResultCard(result);
+            });
+            
+            html += '</div>';
+            
+            if (data.total_results > 6) {
+                html += `
+                    <div class="mt-3 text-center">
+                        <a href="/search?q=${encodeURIComponent(data.keywords)}" class="btn btn-primary">
+                            Показать все ${data.total_results} результатов
+                        </a>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
+        
+        function renderResultCard(result) {
+            let cardClass = '';
+            let icon = '';
+            let title = '';
+            let content = '';
+            
+            if (result.type === 'language') {
+                cardClass = 'border-primary';
+                icon = '<i class="fas fa-code text-primary"></i>';
+                title = `<h6 class="card-title">${result.display_name || result.name}</h6>`;
+                content = `
+                    <p class="small mb-2"><strong>Тип:</strong> Язык программирования</p>
+                    <a href="/language/${result.name}/sources" class="btn btn-sm btn-outline-primary">
+                        <i class="fas fa-list"></i> Все источники
+                    </a>
+                `;
+            } else if (result.type === 'publication') {
+                cardClass = 'border-success';
+                
+                // Определяем тип публикации
+                let pubType = 'Публикация';
+                let typeIcon = '<i class="fas fa-file-alt text-success"></i>';
+                if (result.publication_type === 'Book') {
+                    pubType = 'Книга';
+                    typeIcon = '<i class="fas fa-book text-success"></i>';
+                } else if (result.publication_type === 'Documentation') {
+                    pubType = 'Документация';
+                    typeIcon = '<i class="fas fa-book-open text-info"></i>';
+                } else if (result.publication_type === 'Tutorial') {
+                    pubType = 'Туториал';
+                    typeIcon = '<i class="fas fa-graduation-cap text-warning"></i>';
+                } else if (result.publication_type === 'Article') {
+                    pubType = 'Статья';
+                    typeIcon = '<i class="fas fa-newspaper text-primary"></i>';
+                }
+                
+                icon = typeIcon;
+                title = `<h6 class="card-title">${result.title || result.name}</h6>`;
+                
+                content = `
+                    <p class="small mb-2"><strong>Тип:</strong> ${pubType}</p>
+                    ${result.author ? `<p class="small mb-2"><strong>Автор:</strong> ${result.author}</p>` : ''}
+                    ${result.url ? `
+                        <a href="${result.url}" target="_blank" class="btn btn-sm btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Открыть
+                        </a>
+                    ` : ''}
+                    ${result.language ? `
+                        <a href="/language/${result.language}/sources" class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-list"></i> Все источники
+                        </a>
+                    ` : ''}
+                `;
+            } else if (result.type === 'framework') {
+                cardClass = 'border-warning';
+                icon = '<i class="fas fa-cube text-warning"></i>';
+                title = `<h6 class="card-title">${result.name}</h6>`;
+                content = `<p class="small mb-2"><strong>Тип:</strong> Фреймворк</p>`;
+            }
+            
+            return `
+                <div class="col-md-6 mb-3">
+                    <div class="card ${cardClass} h-100">
+                        <div class="card-body">
+                            ${icon}
+                            ${title}
+                            ${content}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
