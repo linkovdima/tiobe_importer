@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Secrets and local config
+github_config.py
+.env
+*.env
+
+# Local data
+data/cabinet.sqlite3
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Thesis / coursework (keep locally, not in repo)
+*.pdf
+*.docx
+начало_диплома*
+начало_диплома1*
+*extracted.txt
+диплом_*
+ВВЕДЕНИ*
+221121_*
+*курсовая*
+*Курсовая*
+*реферат*
+*статья*
+*выступление*
+*презентация*
+*доклад*
+Содержание_курсовой*
+ОБНОВЛЕНИЯ_КУРСОВОЙ*
+ИНСТРУКЦИЯ_ПО_КУРСОВОЙ*
+Диаграммы_для_курсовой*
+архитектура_сервиса.png
+
+# Cursor / temp assets
+assets/
+
+# Legacy local docs and one-off scripts (not part of the app)
+*_GUIDE.md
+DATA_SOURCES_GUIDE.md
+FIX_CPP_SOURCES.md
+HOW_TO_*.md
+IMPROVEMENTS.md
+PROJECT_ANALYSIS.md
+QUICK_*.md
+SEARCH_*.md
+SOURCES_GUIDE.md
+START_HERE.md
+TROUBLESHOOTING.md
+UPDATE_PROJECT.md
+/add_*.py
+/check_*.py
+/extended_sources.py
+/find_ontology.py
+/test_*.py
+/update_all_sources.py
