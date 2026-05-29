@@ -28,8 +28,8 @@ Desktop.ini
 # Thesis / coursework (keep locally, not in repo)
 *.pdf
 *.docx
-начало_диплома*
-начало_диплома1*
+начало*
+*диплома*
 *extracted.txt
 диплом_*
 ВВЕДЕНИ*
